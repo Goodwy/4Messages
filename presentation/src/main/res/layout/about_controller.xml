@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <LinearLayout
+        android:id="@+id/preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/appLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/appIcon"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:layout_marginLeft="32dp"
+                android:layout_gravity="left"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:duplicateParentState="true"
+                android:orientation="vertical"
+                android:paddingLeft="24dp"
+                android:paddingTop="16dp"
+                android:paddingRight="44dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintStart_toEndOf="@id/appIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints">
+
+                <com.goodwy.messages.common.widget.QkTextView
+                    android:id="@+id/appName"
+                    style="@style/TextPrimary"
+                    android:text="@string/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:duplicateParentState="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <com.goodwy.messages.common.widget.QkTextView
+                        android:id="@+id/version"
+                        style="@style/TextSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:text="@string/about_version_title"
+                        android:duplicateParentState="true"
+                        tools:text="Version" />
+
+                    <com.goodwy.messages.common.widget.QkTextView
+                        android:id="@+id/versionCode"
+                        style="@style/TextSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:duplicateParentState="true"
+                        tools:text="1.0.0" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/messageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/about_message" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/rateTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/about_rate_title"
+            app:summary="@string/about_message_rate"
+            app:widget="@layout/settings_chevron_one_widget" />
+<!--
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/about_version_title"
+            tools:summary="1.0.0" />
+-->
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/developer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/about_developer_title"
+            app:summary="@string/about_developer"
+            app:value="@string/about_other_app_title"
+            app:widget="@layout/settings_chevron_two_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:summary="@string/about_source"
+            app:title="@string/about_source_title" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/changelog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:summary="@string/about_changelog"
+            app:title="@string/about_changelog_title" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:summary="@string/about_contact"
+            app:title="@string/about_contact_title"
+            app:widget="@layout/settings_chevron_three_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:summary="@string/about_license"
+            app:title="@string/about_license_title" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/copyright"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:summary="@string/about_copyright"
+            app:title="@string/about_copyright_title" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:parentTag="com.goodwy.messages.common.widget.PreferenceView">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:duplicateParentState="true"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:duplicateParentState="true"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="16dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="16dp">
+
+        <com.goodwy.messages.common.widget.QkTextView
+            android:id="@+id/titleView"
+            style="@style/TextPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            tools:text="Default SMS App" />
+
+        <com.goodwy.messages.common.widget.QkTextView
+            android:id="@+id/summaryView"
+            style="@style/TextSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:duplicateParentState="true"
+            tools:text="QKSMS is your default SMS app" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/valueConteinerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:duplicateParentState="true"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="16dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone">
+
+        <com.goodwy.messages.common.widget.QkTextView
+            android:id="@+id/valueView"
+            style="@style/TextSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:gravity="right"
+            android:visibility="gone"
+            tools:text="System" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/widgetFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="16dp"
+        android:duplicateParentState="true" />
+
+</merge>

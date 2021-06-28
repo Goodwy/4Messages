@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.goodwy.messages.common.widget.QkTextView
+            android:id="@+id/toolbarTitle"
+            style="@style/ToolbarText"
+            tools:text="Notifications" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:id="@+id/preferences"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/notificationsO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:summary="@string/settings_notifications_o_summary"
+                app:title="@string/settings_notifications_title"
+                app:widget="@layout/settings_chevron_one_widget"
+                tools:visibility="gone" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notifications_title"
+                app:widget="@layout/settings_switch_widget" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/previews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notification_previews_title"
+                tools:value="Show name and message" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/wake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notification_wake_title"
+                app:widget="@layout/settings_switch_widget" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/vibration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_vibration_title"
+                app:widget="@layout/settings_switch_widget" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/ringtone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_ringtone_title" />
+
+            <View
+                android:id="@+id/actionsDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="?android:attr/divider" />
+
+            <com.goodwy.messages.common.widget.QkTextView
+                android:id="@+id/actionsTitle"
+                style="@style/PreferenceCategory"
+                android:text="@string/settings_notification_actions_title" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/action1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notification_action_1"
+                tools:value="Mark read" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/action2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notification_action_2"
+                tools:value="Reply" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/action3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/settings_notification_action_3"
+                tools:value="None" />
+
+            <View
+                android:id="@+id/qkreplyDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="?android:attr/divider" />
+
+            <com.goodwy.messages.common.widget.QkTextView
+                android:id="@+id/qkreplyTitle"
+                style="@style/PreferenceCategory"
+                android:text="@string/settings_category_qkreply" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/qkreply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:summary="@string/settings_qkreply_summary"
+                app:title="@string/settings_qkreply_title"
+                app:widget="@layout/settings_switch_widget" />
+
+            <com.goodwy.messages.common.widget.PreferenceView
+                android:id="@+id/qkreplyTapDismiss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:summary="@string/settings_qkreply_tap_dismiss_summary"
+                app:title="@string/settings_qkreply_tap_dismiss_title"
+                app:widget="@layout/settings_switch_widget" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/ab_shadow"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/divider"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

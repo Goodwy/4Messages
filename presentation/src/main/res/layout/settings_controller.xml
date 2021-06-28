@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <LinearLayout
+        android:id="@+id/preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <com.goodwy.messages.common.widget.QkTextView
+            style="@style/PreferenceCategory"
+            android:text="@string/settings_category_appearance" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_color_lens_black_24dp"
+            app:title="@string/settings_theme_title"
+            app:widget="@layout/settings_theme_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/night"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_invert_colors_black_24dp"
+            app:title="@string/settings_night_title"
+            tools:value="Automatic" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:title="@string/settings_gray_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:title="@string/settings_black_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/nightStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:title="@string/settings_night_start_title"
+            tools:value="6:00PM" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/nightEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:title="@string/settings_night_end_title"
+            tools:nightStart="9:00AM" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/autoColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_person_black_24dp"
+            app:title="@string/settings_automatic_colors_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/grayAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_person_black_24dp"
+            app:title="@string/settings_gray_avatar_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_title_black_24dp"
+            app:title="@string/settings_separator_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/textSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_format_size_black_24dp"
+            app:title="@string/settings_text_size_title"
+            tools:value="Normal" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/systemFont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_title_black_24dp"
+            app:title="@string/settings_system_font_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="?android:attr/divider" />
+
+        <com.goodwy.messages.common.widget.QkTextView
+            style="@style/PreferenceCategory"
+            android:text="@string/settings_category_general" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_notifications_black_24dp"
+            app:title="@string/settings_notifications_title"
+            app:widget="@layout/settings_chevron_one_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/autoEmoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:title="@string/settings_auto_emoji_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/delayed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_av_timer_black_24dp"
+            app:title="@string/settings_delayed_title"
+            tools:value="No delay" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/swipeActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:icon="@drawable/ic_clear_all_black_24dp"
+            app:summary="@string/settings_swipe_actions_summary"
+            app:title="@string/settings_swipe_actions"
+            app:widget="@layout/settings_chevron_two_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/delivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_check_white_24dp"
+            app:summary="@string/settings_delivery_summary"
+            app:title="@string/settings_delivery_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_short_text_black_24dp"
+            app:title="@string/settings_signature_title"
+            app:summary="@string/settings_signature_summary" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/unicode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_translate_black_24dp"
+            app:summary="@string/settings_unicode_summary"
+            app:title="@string/settings_unicode_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/mobileOnly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_smartphone_black_24dp"
+            app:summary="@string/settings_mobile_summary"
+            app:title="@string/settings_mobile_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/autoDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_baseline_history_toggle_off_24"
+            app:title="@string/settings_auto_delete"
+            tools:value="Never" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/longAsMms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_message_black_24dp"
+            app:summary="@string/settings_long_as_mms_summary"
+            app:title="@string/settings_long_as_mms_title"
+            app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/mmsSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:icon="@drawable/ic_photo_size_select_actual_black_24dp"
+            app:title="@string/settings_mms_size_title"
+            tools:value="100KB" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="?android:attr/divider" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/sync"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_sync_black_24dp"
+            app:summary="@string/settings_sync_summary"
+            app:title="@string/settings_sync_title" />
+
+        <ProgressBar
+            android:id="@+id/syncingProgress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_info_black_24dp"
+            app:title="@string/about_title"
+            tools:summary="Version 3.0.7"
+            app:widget="@layout/settings_chevron_three_widget" />
+
+    </LinearLayout>
+
+</ScrollView>
