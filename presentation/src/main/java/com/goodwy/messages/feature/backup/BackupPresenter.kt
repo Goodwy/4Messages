@@ -19,6 +19,7 @@
 package com.goodwy.messages.feature.backup
 
 import android.content.Context
+import android.os.Build
 import com.goodwy.messages.R
 import com.goodwy.messages.common.Navigator
 import com.goodwy.messages.common.base.QkPresenter
@@ -96,6 +97,7 @@ class BackupPresenter @Inject constructor(
                         !upgraded -> context.makeToast(R.string.backup_restore_error_plus)
                         backupProgress.running -> context.makeToast(R.string.backup_restore_error_backup)
                         restoreProgress.running -> context.makeToast(R.string.backup_restore_error_restore)
+                        view.isRPlus() -> view.selectFile()//view.tryImportMessages()
                         !permissionManager.hasStorage() -> view.requestStoragePermission()
                         else -> view.selectFile()
                     }
@@ -126,7 +128,7 @@ class BackupPresenter @Inject constructor(
                 .subscribe { upgraded ->
                     when {
                         !upgraded -> navigator.showQksmsPlusActivity("backup_fab")
-                        !permissionManager.hasStorage() -> view.requestStoragePermission()
+                        //!permissionManager.hasStorage() && !view.isRPlus() -> view.requestStoragePermission()
                         upgraded -> performBackup.execute(Unit)
                     }
                 }

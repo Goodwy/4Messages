@@ -1,21 +1,3 @@
-/*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.goodwy.messages.blocking
 
 import android.content.ComponentName
@@ -55,7 +37,9 @@ class ShouldIAnswerBlockingClient @Inject constructor(
 
     override fun getClientCapability() = BlockingClient.Capability.CANT_BLOCK
 
-    override fun getAction(address: String): Single<BlockingClient.Action> {
+    override fun shouldBlock(address: String): Single<BlockingClient.Action> = isBlacklisted(address)
+
+    override fun isBlacklisted(address: String): Single<BlockingClient.Action> {
         return Binder(context, address).isBlocked()
                 .map { blocked ->
                     when (blocked) {
@@ -65,9 +49,13 @@ class ShouldIAnswerBlockingClient @Inject constructor(
                 }
     }
 
-    override fun block(addresses: List<String>): Completable = Completable.fromCallable { openSettings() }
+    override fun getActionFromContent(content: String): Single<BlockingClient.Action> = Single.fromCallable{
+        BlockingClient.Action.DoNothing
+    }
 
-    override fun unblock(addresses: List<String>): Completable = Completable.fromCallable { openSettings() }
+    override fun blockAddresses(addresses: List<String>): Completable = Completable.fromCallable { openSettings() }
+
+    override fun unblockAddresses(addresses: List<String>): Completable = Completable.fromCallable { openSettings() }
 
     override fun openSettings() {
         val pm = context.packageManager

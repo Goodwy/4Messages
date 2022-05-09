@@ -314,7 +314,7 @@
     <string name="messages_plus_donate">Darovat pomocí PayPal</string>
     <string name="messages_plus_coming_soon">Připravujeme</string>
     <string name="messages_plus_themes_title">Prémiové motivy vzhledu</string>
-    <string name="messages_plus_themes_summary">Nádherné barvy, které nejsou na paletě Material designu</string>
+    <string name="messages_plus_themes_summary">Odemkněte všechny barvy motivu a výběru barev</string>
     <string name="messages_plus_emoji_title">Vlastní automatické emoji</string>
     <string name="messages_plus_emoji_summary">Vytvořte si zkratky pro vlastní automatické emoji</string>
     <string name="messages_plus_backup_title">Zálohování zpráv</string>
@@ -429,4 +429,10 @@
     <string name="about_rate_title">Ohodnoťte 4Messages</string>
     <string name="about_other_app_title">Další aplikace</string>
     <string name="settings_gray_avatar_title">Šedé kontaktní avatary</string>
+    <string name="settings_sim_color_title">Barevné ikony SIM karet</string>
+    <string name="settings_delayed_title_summary">Umožňuje zrušit nebo změnit zprávu před odesláním.</string>
+    <string name="compose_menu_speech">Text řeči</string>
+    <string name="settings_sim_сonfigure_title">Konfigurace SIM karet</string>
+    <string name="settings_sim_color_summary">Konfigurace barvy ikon karet SIM</string>
+    <string name="settings_search_elevation_title">Nadmořská výška vyhledávání</string>
 </resources>

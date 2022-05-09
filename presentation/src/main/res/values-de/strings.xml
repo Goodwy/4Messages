@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Spenden per PayPal</string>
     <string name="messages_plus_coming_soon">Demnächst verfügbar</string>
     <string name="messages_plus_themes_title">Premium-Erscheinungsbilder</string>
-    <string name="messages_plus_themes_summary">Wundervolle Farben, die kein Teil der Material Design-Farbpalette sind, für das Erscheinungsbild freischalten</string>
+    <string name="messages_plus_themes_summary">Schalte alle Farben des Designs und der Farbauswahl frei</string>
     <string name="messages_plus_emoji_title">Benutzerdefinierte Auto-Emoji</string>
     <string name="messages_plus_emoji_summary">Benutzerdefinierte Auto-Emoji-Verknüpfungen erstellen</string>
     <string name="messages_plus_backup_title">Nachrichtensicherung</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Bewerten Sie 4Nachrichten</string>
     <string name="about_other_app_title">Andere Apps</string>
     <string name="settings_gray_avatar_title">Graue Kontaktavatare</string>
+    <string name="settings_sim_color_title">Farbige SIM-Karten-Symbole</string>
+    <string name="settings_delayed_title_summary">Ermöglicht es Ihnen, die Nachricht vor dem Senden abzubrechen oder zu ändern</string>
+    <string name="compose_menu_speech">Sprachtext</string>
+    <string name="settings_sim_сonfigure_title">SIM-Karten konfigurieren</string>
+    <string name="settings_sim_color_summary">Konfigurieren der Farbe der SIM-Kartensymbole</string>
+    <string name="settings_search_elevation_title">Höhe der Suche</string>
 </resources>

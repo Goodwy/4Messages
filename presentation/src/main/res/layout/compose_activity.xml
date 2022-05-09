@@ -233,7 +233,8 @@
         android:src="@drawable/ic_cancel_black_24dp"
         android:tint="?android:attr/textColorSecondary"
         app:layout_constraintBottom_toTopOf="@id/scheduledSeparator"
-        app:layout_constraintEnd_toEndOf="@id/messageBackground" />
+        app:layout_constraintEnd_toEndOf="@id/messageBackground"
+        android:contentDescription="сancel" />
 
     <View
         android:id="@+id/scheduledSeparator"

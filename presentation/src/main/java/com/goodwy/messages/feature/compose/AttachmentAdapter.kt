@@ -21,10 +21,12 @@ package com.goodwy.messages.feature.compose
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.goodwy.messages.R
 import com.goodwy.messages.common.base.QkAdapter
 import com.goodwy.messages.common.base.QkViewHolder
+import com.goodwy.messages.common.util.extensions.getDisplayName
 import com.goodwy.messages.extensions.mapNotNull
 import com.goodwy.messages.model.Attachment
 import ezvcard.Ezvcard
@@ -78,9 +80,13 @@ class AttachmentAdapter @Inject constructor(
 
             is Attachment.Contact -> Observable.just(attachment.vCard)
                     .mapNotNull { vCard -> Ezvcard.parse(vCard).first() }
+                    .map { vcard -> vcard.getDisplayName() ?: "" }
                     .subscribeOn(Schedulers.computation())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { vcard -> holder.name?.text = vcard.formattedName.value }
+                    .subscribe { displayName ->
+                    holder.name?.text = displayName
+                    holder.name?.isVisible = displayName.isNotEmpty()
+                }
         }
     }
 

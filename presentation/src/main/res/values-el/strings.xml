@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Δωρεά μέσω PayPal</string>
     <string name="messages_plus_coming_soon">Έρχεται σύντομα</string>
     <string name="messages_plus_themes_title">Premium themes</string>
-    <string name="messages_plus_themes_summary">Unlock beautiful theme colors not available on the Material Design palette</string>
+    <string name="messages_plus_themes_summary">Ξεκλειδώστε όλα τα χρώματα του θέματος και του επιλογέα χρωμάτων</string>
     <string name="messages_plus_emoji_title">Custom auto-emoji</string>
     <string name="messages_plus_emoji_summary">Create custom auto-emoji shortcuts</string>
     <string name="messages_plus_backup_title">Message backup</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Βαθμολογήστε 4 μηνύματα</string>
     <string name="about_other_app_title">Αλλες εφαρμογές</string>
     <string name="settings_gray_avatar_title">Γκρι είδωλα επαφής</string>
+    <string name="settings_sim_color_title">Χρωματιστά εικονίδια καρτών SIM</string>
+    <string name="settings_delayed_title_summary">Σας επιτρέπει να ακυρώσετε ή να αλλάξετε το μήνυμα πριν από την αποστολή</string>
+    <string name="compose_menu_speech">Κείμενο ομιλίας</string>
+    <string name="settings_sim_сonfigure_title">Ρύθμιση παραμέτρων καρτών SIM</string>
+    <string name="settings_sim_color_summary">Ρύθμιση παραμέτρων του χρώματος των εικονιδίων καρτών SIM</string>
+    <string name="settings_search_elevation_title">Ανύψωση αναζήτησης</string>
 </resources>

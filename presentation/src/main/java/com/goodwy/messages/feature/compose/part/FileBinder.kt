@@ -31,13 +31,14 @@ import com.goodwy.messages.common.util.extensions.setTint
 import com.goodwy.messages.feature.compose.BubbleUtils
 import com.goodwy.messages.model.Message
 import com.goodwy.messages.model.MmsPart
+import com.goodwy.messages.util.Preferences
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.mms_file_list_item.*
 import javax.inject.Inject
 
-class FileBinder @Inject constructor(colors: Colors, private val context: Context) : PartBinder() {
+class FileBinder @Inject constructor(colors: Colors, private val context: Context, private val prefs: Preferences) : PartBinder() {
 
     override val partLayout = R.layout.mms_file_list_item
     override var theme = colors.theme()
@@ -53,7 +54,7 @@ class FileBinder @Inject constructor(colors: Colors, private val context: Contex
             canGroupWithPrevious: Boolean,
             canGroupWithNext: Boolean
     ) {
-        BubbleUtils.getBubble(false, canGroupWithPrevious, canGroupWithNext, message.isMe())
+        BubbleUtils.getBubble(false, canGroupWithPrevious, canGroupWithNext, message.isMe(), style = prefs.bubbleStyle.get())
                 .let(holder.fileBackground::setBackgroundResource)
 
         holder.containerView.setOnClickListener { clicks.onNext(part.id) }

@@ -1,6 +1,7 @@
 package com.goodwy.messages.repository
 
 import android.content.Context
+import android.os.Build
 import android.os.Environment
 import android.provider.Telephony
 import androidx.core.content.contentValuesOf
@@ -34,9 +35,20 @@ class BackupRepositoryImpl @Inject constructor(
     private val syncRepo: SyncRepository
 ) : BackupRepository {
 
-    companion object {
-        private val BACKUP_DIRECTORY = Environment.getExternalStorageDirectory().toString() + "/4Messages/Backups"
+    /*companion object {
+        private val BACKUP_DIRECTORY = Environment.getExternalStorageDirectory().toString() + "/Documents/4Messages/Backups"
+    }*/
+    private val BACKUP_DIRECTORY = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        Environment.getExternalStorageDirectory().toString() + "/Documents/4Messages/Backups"
+    } else {
+        Environment.getExternalStorageDirectory().toString() + "/4Messages/Backups"
     }
+    /*private val BACKUP_DIRECTORY = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        context.getExternalFilesDir("Backups")!!.absolutePath
+        //MediaStore.Downloads.EXTERNAL_CONTENT_URI.toString()
+    } else {
+        Environment.getExternalStorageDirectory().toString() + "/4Messages/Backups"
+    }*/
 
     data class Backup(
         val messageCount: Int = 0,
@@ -157,6 +169,9 @@ class BackupRepositoryImpl @Inject constructor(
         // If a backupFile or restore is already running, don't do anything
         if (isBackupOrRestoreRunning()) return
 
+        val timer = Timer()
+        timer.schedule(10000) { restoreProgress.onNext(BackupRepository.Progress.Idle()) }
+
         restoreProgress.onNext(BackupRepository.Progress.Parsing())
 
         val file = File(filePath)
@@ -176,6 +191,7 @@ class BackupRepositoryImpl @Inject constructor(
 
             // Update the progress
             restoreProgress.onNext(BackupRepository.Progress.Running(messageCount, index))
+            timer.cancel()
 
             try {
                 val values = contentValuesOf(

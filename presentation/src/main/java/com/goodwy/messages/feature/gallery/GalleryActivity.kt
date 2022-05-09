@@ -19,7 +19,11 @@
 package com.goodwy.messages.feature.gallery
 
 import android.Manifest
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
@@ -29,6 +33,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.goodwy.messages.BuildConfig
 import com.goodwy.messages.R
 import com.goodwy.messages.common.base.QkActivity
 import com.goodwy.messages.common.util.DateFormatter
@@ -103,7 +108,17 @@ class GalleryActivity : QkActivity(), GalleryView {
     override fun pageChanged(): Observable<MmsPart> = pageChangedSubject
 
     override fun requestStoragePermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val uri = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
+            startActivity(
+                Intent(
+                    Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                    uri
+                )
+            )
+        } else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -185,7 +185,7 @@
     </string-array>
     <string name="settings_category_appearance">ลักษณะที่ปรากฏ</string>
     <string name="settings_category_general">ทั่วไป</string>
-    <string name="settings_category_qkreply">QK ตอบกลับ</string>
+    <string name="settings_category_qkreply">ตอบกลับอย่างรวดเร็ว</string>
     <string name="settings_theme_title">รูปแบบการแสดงผล</string>
     <string name="settings_night_title">โหมดกลางคืน</string>
     <string name="settings_black_title">โหมดกลางคืนแบบมืดสนิท</string>
@@ -206,7 +206,7 @@
     <string name="settings_vibration_title">การสั่น</string>
     <string name="settings_ringtone_title">เสียง</string>
     <string name="settings_ringtone_none">ไม่มี</string>
-    <string name="settings_qkreply_title">QK ตอบกลับ</string>
+    <string name="settings_qkreply_title">ตอบกลับอย่างรวดเร็ว</string>
     <string name="settings_qkreply_summary">ป๊อปอัพข้อความใหม่</string>
     <string name="settings_qkreply_tap_dismiss_title">แตะเพื่อยกเลิก</string>
     <string name="settings_qkreply_tap_dismiss_summary">แตะนอกป๊อปอัพเพื่อปิด</string>
@@ -299,7 +299,7 @@
     <string name="messages_plus_donate">บริจาคผ่าน PayPal</string>
     <string name="messages_plus_coming_soon">เร็วๆ นี้</string>
     <string name="messages_plus_themes_title">รูปแบบพรีเมี่ยม</string>
-    <string name="messages_plus_themes_summary">ปลดล็อครูปแบบการแสดงผลที่ไม่ได้อยู่ใน Material Design</string>
+    <string name="messages_plus_themes_summary">ปลดล็อกสีทั้งหมดของธีมและตัวเลือกสี</string>
     <string name="messages_plus_emoji_title">อีโมจิอัตโนมัติที่กำหนดเอง</string>
     <string name="messages_plus_emoji_summary">สร้างทางลัดอิโมจิอัตโนมัติแบบกำหนดเอง</string>
     <string name="messages_plus_backup_title">สำรองข้อมูลข้อความ</string>
@@ -411,4 +411,10 @@
     <string name="about_rate_title">ให้คะแนน 4Messages</string>
     <string name="about_other_app_title">แอพอื่นๆ</string>
     <string name="settings_gray_avatar_title">อวตารติดต่อสีเทา</string>
+    <string name="settings_sim_color_title">ไอคอนซิมการ์ดสี</string>
+    <string name="settings_delayed_title_summary">อนุญาตให้คุณยกเลิกหรือเปลี่ยนแปลงข้อความก่อนส่ง</string>
+    <string name="compose_menu_speech">ข้อความคําพูด</string>
+    <string name="settings_sim_сonfigure_title">กําหนดค่าซิมการ์ด</string>
+    <string name="settings_sim_color_summary">กําหนดค่าสีของไอคอนซิมการ์ด</string>
+    <string name="settings_search_elevation_title">ระดับความสูงของการค้นหา</string>
 </resources>

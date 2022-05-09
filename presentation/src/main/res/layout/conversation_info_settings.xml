@@ -1,74 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (C) 2019 Moez Bhatti <moez.bhatti@gmail.com>
-  ~
-  ~ This file is part of QKSMS.
-  ~
-  ~ QKSMS is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ QKSMS is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
-  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <View
+    <Button
+        android:id="@+id/groupNameButton"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/button_background"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="@string/info_name"
+        android:textAllCaps="false"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/notificationsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/button_background"
+        android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+        android:drawableTint="?android:attr/textColorPrimary"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="@string/info_notifications"
+        android:textAllCaps="false"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/archiveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
-        android:background="?android:attr/divider" />
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/button_background"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="@string/info_archive"
+        android:textAllCaps="false"
+        tools:ignore="RtlHardcoded" />
 
-    <com.goodwy.messages.common.widget.PreferenceView
-        android:id="@+id/groupName"
+    <Button
+        android:id="@+id/blockButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:icon="@drawable/ic_people_black_24dp"
-        app:title="@string/info_name" />
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/button_background"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="@string/info_block"
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+        tools:ignore="RtlHardcoded" />
 
-    <com.goodwy.messages.common.widget.PreferenceView
-        android:id="@+id/notifications"
+    <Button
+        android:id="@+id/deleteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:icon="@drawable/ic_notifications_black_24dp"
-        app:title="@string/info_notifications" />
-
-    <com.goodwy.messages.common.widget.PreferenceView
-        android:id="@+id/archive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:icon="@drawable/ic_archive_white_24dp"
-        app:title="@string/info_archive" />
-
-    <com.goodwy.messages.common.widget.PreferenceView
-        android:id="@+id/block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:icon="@drawable/ic_block_white_24dp"
-        app:title="@string/info_block" />
-
-    <com.goodwy.messages.common.widget.PreferenceView
-        android:id="@+id/delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:icon="@drawable/ic_delete_white_24dp"
-        app:title="@string/info_delete" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="?android:attr/divider" />
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/button_background"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="23dp"
+        android:paddingRight="23dp"
+        android:text="@string/info_delete"
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+        tools:ignore="RtlHardcoded" />
 
 </LinearLayout>

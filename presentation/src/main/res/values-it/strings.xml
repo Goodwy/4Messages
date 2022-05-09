@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Aspetto</string>
     <string name="settings_category_general">Generale</string>
-    <string name="settings_category_qkreply">Risposta QK</string>
+    <string name="settings_category_qkreply">Risposta veloce</string>
     <string name="settings_theme_title">Tema</string>
     <string name="settings_night_title">Modalità notturna</string>
     <string name="settings_black_title">Modalità notte nero puro</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Vibrazione</string>
     <string name="settings_ringtone_title">Suono</string>
     <string name="settings_ringtone_none">Nessuno</string>
-    <string name="settings_qkreply_title">Risposta QK</string>
+    <string name="settings_qkreply_title">Risposta veloce</string>
     <string name="settings_qkreply_summary">Popup per i nuovi messaggi</string>
     <string name="settings_qkreply_tap_dismiss_title">Tocca per archiviare</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tocca al di fuori del popup per chiuderlo</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Fai una donazione tramite PayPal</string>
     <string name="messages_plus_coming_soon">Prossimamente</string>
     <string name="messages_plus_themes_title">Temi Premium</string>
-    <string name="messages_plus_themes_summary">Sblocca splendidi colori non disponibili nella tavolozza del Material Design</string>
+    <string name="messages_plus_themes_summary">Sblocca tutti i colori del tema e del selettore colori</string>
     <string name="messages_plus_emoji_title">Personalizza gli emoji automatici</string>
     <string name="messages_plus_emoji_summary">Crea scorciatoie personalizzate per gli emoji automatici</string>
     <string name="messages_plus_backup_title">Backup dei messaggi</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Vota 4Messages</string>
     <string name="about_other_app_title">Altre app</string>
     <string name="settings_gray_avatar_title">Avatar di contatto grigio</string>
+    <string name="settings_sim_color_title">Icone colorate delle schede SIM</string>
+    <string name="settings_delayed_title_summary">Consente di annullare o modificare il messaggio prima dell\'invio</string>
+    <string name="compose_menu_speech">Testo vocale</string>
+    <string name="settings_sim_сonfigure_title">Configurare le schede SIM</string>
+    <string name="settings_sim_color_summary">Configurare il colore delle icone delle schede SIM</string>
+    <string name="settings_search_elevation_title">Ricerca elevazione</string>
 </resources>

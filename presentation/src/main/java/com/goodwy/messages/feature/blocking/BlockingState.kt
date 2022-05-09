@@ -18,6 +18,9 @@
  */
 package com.goodwy.messages.feature.blocking
 
+import com.goodwy.messages.model.BlockedNumber
+import io.realm.RealmResults
+
 data class BlockingState(
     val blockingManager: String = "",
     val dropEnabled: Boolean = false

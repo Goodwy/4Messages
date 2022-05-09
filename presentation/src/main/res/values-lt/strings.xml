@@ -314,7 +314,7 @@
     <string name="messages_plus_donate">Paaukoti per PayPal</string>
     <string name="messages_plus_coming_soon">Jau greitai</string>
     <string name="messages_plus_themes_title">Premium temos</string>
-    <string name="messages_plus_themes_summary">Atrakink kitas spalvas, kurios nėra „Material“ paletėje</string>
+    <string name="messages_plus_themes_summary">Atrakinkite visas temos ir spalvų rinkiklio spalvas</string>
     <string name="messages_plus_emoji_title">Individualizuoti auto-emoji</string>
     <string name="messages_plus_emoji_summary">Sukurkite pasirinktinius automatinių emoji sparčiuosius klavišus</string>
     <string name="messages_plus_backup_title">Žinučių atsarginis kopijavimas</string>
@@ -429,4 +429,10 @@
     <string name="about_rate_title">Įvertinkite 4Messages</string>
     <string name="about_other_app_title">Kitos programos</string>
     <string name="settings_gray_avatar_title">Pilki kontaktiniai avatarai</string>
+    <string name="settings_sim_color_title">Spalvotos SIM kortelių piktogramos</string>
+    <string name="settings_delayed_title_summary">Leidžia atšaukti arba pakeisti pranešimą prieš siunčiant</string>
+    <string name="compose_menu_speech">Kalbos tekstas</string>
+    <string name="settings_sim_сonfigure_title">Konfigūruoti SIM korteles</string>
+    <string name="settings_sim_color_summary">SIM kortelių piktogramų spalvos konfigūravimas</string>
+    <string name="settings_search_elevation_title">Ieškos aukštis</string>
 </resources>

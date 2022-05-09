@@ -90,3 +90,12 @@
     <init>(...);
     <fields>;
 }
+
+
+# From: https://github.com/square/moshi/blob/master/kotlin/reflect/src/main/resources/META-INF/proguard/moshi-kotlin.pro
+# Buckup bugfix
+-keep class kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoaderImpl
+-keep class kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInsLoaderImpl
+-keep class kotlin.reflect.jvm.internal.impl.load.java.FieldOverridabilityCondition
+-keep class kotlin.reflect.jvm.internal.impl.load.java.ErasedOverridabilityCondition
+-keep class kotlin.reflect.jvm.internal.impl.load.java.JavaIncompatibilityRulesOverridabilityCondition

@@ -3,6 +3,7 @@ package com.goodwy.messages.feature.blocking.manager
 import android.content.Context
 import com.goodwy.messages.R
 import com.goodwy.messages.blocking.BlockingClient
+import com.goodwy.messages.blocking.CallBlockerBlockingClient
 import com.goodwy.messages.blocking.CallControlBlockingClient
 import com.goodwy.messages.blocking.QksmsBlockingClient
 import com.goodwy.messages.blocking.ShouldIAnswerBlockingClient
@@ -21,6 +22,7 @@ import javax.inject.Inject
 
 class BlockingManagerPresenter @Inject constructor(
     private val analytics: AnalyticsManager,
+    private val callBlocker: CallBlockerBlockingClient,
     private val callControl: CallControlBlockingClient,
     private val context: Context,
     private val conversationRepo: ConversationRepository,
@@ -30,6 +32,7 @@ class BlockingManagerPresenter @Inject constructor(
     private val shouldIAnswer: ShouldIAnswerBlockingClient
 ) : QkPresenter<BlockingManagerView, BlockingManagerState>(BlockingManagerState(
         blockingManager = prefs.blockingManager.get(),
+        callBlockerInstalled = callBlocker.isAvailable(),
         callControlInstalled = callControl.isAvailable(),
         siaInstalled = shouldIAnswer.isAvailable()
 )) {
@@ -41,6 +44,12 @@ class BlockingManagerPresenter @Inject constructor(
 
     override fun bindIntents(view: BlockingManagerView) {
         super.bindIntents(view)
+
+        view.activityResumed()
+                .map { callBlocker.isAvailable() }
+                .distinctUntilChanged()
+                .autoDisposable(view.scope())
+                .subscribe { available -> newState { copy(callBlockerInstalled = available) } }
 
         view.activityResumed()
                 .map { callControl.isAvailable() }
@@ -57,11 +66,28 @@ class BlockingManagerPresenter @Inject constructor(
         view.qksmsClicked()
                 .observeOn(Schedulers.io())
                 .map { getAddressesToBlock(qksms) }
-                .switchMap { numbers -> qksms.block(numbers).andThen(Observable.just(Unit)) } // Hack
+                .switchMap { numbers -> qksms.blockAddresses(numbers).andThen(Observable.just(Unit)) } // Hack
                 .autoDisposable(view.scope())
                 .subscribe {
-                    analytics.setUserProperty("Blocking Manager", "4messages")
+                    analytics.setUserProperty("Blocking Manager", "4Messages")
                     prefs.blockingManager.set(Preferences.BLOCKING_MANAGER_QKSMS)
+                }
+
+        view.callBlockerClicked()
+                .filter {
+                    val installed = callBlocker.isAvailable()
+                    if (!installed) {
+                        analytics.track("Install Call Blocker")
+                        navigator.installCallBlocker()
+                    }
+
+                    val enabled = prefs.blockingManager.get() == Preferences.BLOCKING_MANAGER_CB
+                    installed && !enabled
+                }
+                .autoDisposable(view.scope())
+                .subscribe {
+                    analytics.setUserProperty("Blocking Manager", "Call Blocker")
+                    prefs.blockingManager.set(Preferences.BLOCKING_MANAGER_CB)
                 }
 
         view.callControlClicked()
@@ -89,10 +115,10 @@ class BlockingManagerPresenter @Inject constructor(
                 .filter { it }
                 .observeOn(Schedulers.io())
                 .map { getAddressesToBlock(callControl) } // This sucks. Can't wait to use coroutines
-                .switchMap { numbers -> callControl.block(numbers).andThen(Observable.just(Unit)) } // Hack
+            .switchMap { numbers -> callControl.blockAddresses(numbers).andThen(Observable.just(Unit)) } // Hack
                 .autoDisposable(view.scope())
                 .subscribe {
-                    callControl.getAction("callcontrol").blockingGet()
+                    callControl.shouldBlock("callcontrol").blockingGet()
                     analytics.setUserProperty("Blocking Manager", "Call Control")
                     prefs.blockingManager.set(Preferences.BLOCKING_MANAGER_CC)
                 }
@@ -117,6 +143,6 @@ class BlockingManagerPresenter @Inject constructor(
 
     private fun getAddressesToBlock(client: BlockingClient) = conversationRepo.getBlockedConversations()
             .fold(listOf<String>(), { numbers, conversation -> numbers + conversation.recipients.map { it.address } })
-            .filter { number -> client.getAction(number).blockingGet() !is BlockingClient.Action.Block }
+        .filter { number -> client.isBlacklisted(number).blockingGet() !is BlockingClient.Action.Block }
 
 }

@@ -299,7 +299,7 @@
     <string name="messages_plus_donate">Tài trợ bằng PayPal</string>
     <string name="messages_plus_coming_soon">Sắp có</string>
     <string name="messages_plus_themes_title">Chủ đề đặc biệt</string>
-    <string name="messages_plus_themes_summary">Mở khóa các màu sắc đẹp không có sẵn trong bản thiết kế Material</string>
+    <string name="messages_plus_themes_summary">Mở khóa tất cả các màu của chủ đề và bộ chọn màu</string>
     <string name="messages_plus_emoji_title">Tuỳ biến Emoji tự động</string>
     <string name="messages_plus_emoji_summary">Tạo phím tắt Emoji tự động</string>
     <string name="messages_plus_backup_title">Sao lưu tin nhắn</string>
@@ -411,4 +411,10 @@
     <string name="about_rate_title">Đánh giá 4Messages</string>
     <string name="about_other_app_title">Những ứng dụng khác</string>
     <string name="settings_gray_avatar_title">Hình đại diện liên hệ màu xám</string>
+    <string name="settings_sim_color_title">Các biểu tượng thẻ SIM màu</string>
+    <string name="settings_delayed_title_summary">Cho phép bạn hủy bỏ hoặc thay đổi thư trước khi gửi</string>
+    <string name="compose_menu_speech">Văn bản lời nói</string>
+    <string name="settings_sim_сonfigure_title">Cấu hình thẻ SIM</string>
+    <string name="settings_sim_color_summary">Cấu hình màu của biểu tượng thẻ SIM</string>
+    <string name="settings_search_elevation_title">Độ cao tìm kiếm</string>
 </resources>

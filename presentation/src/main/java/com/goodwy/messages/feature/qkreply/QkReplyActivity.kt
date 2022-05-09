@@ -14,15 +14,15 @@ import com.jakewharton.rxbinding2.view.clicks
 import com.jakewharton.rxbinding2.widget.textChanges
 import com.goodwy.messages.R
 import com.goodwy.messages.common.base.QkThemedActivity
-import com.goodwy.messages.common.util.extensions.autoScrollToStart
-import com.goodwy.messages.common.util.extensions.resolveThemeColor
-import com.goodwy.messages.common.util.extensions.setBackgroundTint
-import com.goodwy.messages.common.util.extensions.setVisible
+import com.goodwy.messages.common.util.extensions.*
 import com.goodwy.messages.feature.compose.MessagesAdapter
 import dagger.android.AndroidInjection
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
+import kotlinx.android.synthetic.main.message_list_item_in.*
 import kotlinx.android.synthetic.main.qkreply_activity.*
+import kotlinx.android.synthetic.main.qkreply_activity.sim
+import kotlinx.android.synthetic.main.qkreply_activity.simIndex
 import javax.inject.Inject
 
 class QkReplyActivity : QkThemedActivity(), QkReplyView {
@@ -87,6 +87,23 @@ class QkReplyActivity : QkThemedActivity(), QkReplyView {
         sim.setVisible(state.subscription != null)
         sim.contentDescription = getString(R.string.compose_sim_cd, state.subscription?.displayName)
         simIndex.text = "${state.subscription?.simSlotIndex?.plus(1)}"
+
+        /*val simColor = when (state.subscription?.simSlotIndex?.plus(1)?.toString()) {
+            "1" -> getColorCompat(R.color.sim1)
+            "2" -> getColorCompat(R.color.sim2)
+            "3" -> getColorCompat(R.color.sim3)
+            "4" -> getColorCompat(R.color.sim4)
+            else -> getColorCompat(R.color.sim_other)
+        }*/
+        val simColor = when (state.subscription?.simSlotIndex?.plus(1)?.toString()) {
+            "1" -> colors.colorForSim(this, 1)
+            "2" -> colors.colorForSim(this, 2)
+            "3" -> colors.colorForSim(this, 3)
+            else -> colors.colorForSim(this, 1)
+        }
+        if (prefs.simColor.get()) {
+            sim.setTint(simColor)
+        }
 
         send.isEnabled = state.canSend
         send.imageAlpha = if (state.canSend) 255 else 128

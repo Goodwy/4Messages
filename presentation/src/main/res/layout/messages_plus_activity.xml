@@ -42,26 +42,26 @@
                     android:layout_height="wrap_content"
                     android:text="@string/messages_plus_description_summary"
                     android:textColor="?android:attr/textColorSecondary"
-                    app:textSize="secondary" />
+                    app:textSize="secondary"/>
 
                 <com.goodwy.messages.common.widget.QkTextView
                     android:id="@+id/upgrade"
                     style="@style/TextButton"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/rounded_rectangle_2dp"
+                    android:background="@drawable/button_background_about"
                     android:text="@string/messages_plus_upgrade"
                     app:textColor="primaryOnTheme"
-                    tools:backgroundTint="@color/tools_theme" />
+                    tools:backgroundTint="@color/tools_theme"/>
 
                 <com.goodwy.messages.common.widget.QkTextView
                     android:id="@+id/upgradeDonate"
                     style="@style/TextButton"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/rounded_rectangle_outline_2dp"
+                    android:background="@drawable/button_background_about"
                     android:backgroundTint="?android:attr/divider"
                     android:text="@string/messages_plus_upgrade_donate"
                     android:textColor="?android:attr/textColorPrimary"
-                    tools:backgroundTint="@color/separatorLight" />
+                    tools:backgroundTint="@color/separatorLight"/>
 
             </LinearLayout>
 
@@ -132,7 +132,7 @@
                     android:id="@+id/donate"
                     style="@style/TextButton"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/rounded_rectangle_2dp"
+                    android:background="@drawable/button_background_about"
                     android:text="@string/messages_plus_donate"
                     app:textColor="primaryOnTheme"
                     tools:backgroundTint="@color/tools_theme" />

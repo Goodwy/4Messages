@@ -103,6 +103,10 @@ class SettingsPresenter @Inject constructor(
                 .subscribe { grayAvatar -> newState { copy(grayAvatar = grayAvatar) }
                     widgetManager.updateTheme()}
 
+        /*disposables += prefs.simColor.asObservable()
+            .subscribe { simColor -> newState { copy(simColor = simColor) }
+                widgetManager.updateTheme()}*/
+
         disposables += prefs.separator.asObservable()
                 .subscribe { separator -> newState { copy(separator = separator) } }
 
@@ -128,6 +132,14 @@ class SettingsPresenter @Inject constructor(
                     val index = mmsSizeIds.indexOf(maxMmsSize)
                     newState { copy(maxMmsSizeSummary = mmsSizeLabels[index], maxMmsSizeId = maxMmsSize) }
                 }
+
+        val searchElevationLabels = context.resources.getStringArray(R.array.search_elevation)
+        val searchElevationIds = context.resources.getIntArray(R.array.search_elevation_ids)
+        disposables += prefs.searchElevation.asObservable()
+            .subscribe { maxSearchElevation ->
+                val index = searchElevationIds.indexOf(maxSearchElevation)
+                newState { copy(maxSearchElevationSummary = searchElevationLabels[index], maxSearchElevationId = maxSearchElevation) }
+            }
 
         disposables += syncRepo.syncProgress
                 .sample(16, TimeUnit.MILLISECONDS)
@@ -164,6 +176,11 @@ class SettingsPresenter @Inject constructor(
 
                         R.id.gray -> prefs.gray.set(!prefs.gray.get())
 
+                        R.id.speechBubble -> view.showSpeechBubble()
+
+                        //R.id.simColor -> prefs.simColor.set(!prefs.simColor.get())
+                        R.id.simConfigure -> view.showSimConfigure()
+
                         R.id.autoEmoji -> prefs.autoEmoji.set(!prefs.autoEmoji.get())
 
                         R.id.notifications -> navigator.showNotificationSettings()
@@ -183,9 +200,7 @@ class SettingsPresenter @Inject constructor(
                             prefs.autoColor.set(!prefs.autoColor.get())
                         }
 
-                        R.id.grayAvatar -> {
-                            prefs.grayAvatar.set(!prefs.grayAvatar.get())
-                        }
+                        R.id.grayAvatar -> prefs.grayAvatar.set(!prefs.grayAvatar.get())
 
                         R.id.separator -> prefs.separator.set(!prefs.separator.get())
 
@@ -200,6 +215,8 @@ class SettingsPresenter @Inject constructor(
                         R.id.longAsMms -> prefs.longAsMms.set(!prefs.longAsMms.get())
 
                         R.id.mmsSize -> view.showMmsSizePicker()
+
+                        R.id.searchElevation -> view.showSearchElevationPicker()
 
                         R.id.sync -> syncMessages.execute(Unit)
 
@@ -291,6 +308,10 @@ class SettingsPresenter @Inject constructor(
         view.mmsSizeSelected()
                 .autoDisposable(view.scope())
                 .subscribe(prefs.mmsSize::set)
+
+        view.searchElevationSelected()
+            .autoDisposable(view.scope())
+            .subscribe(prefs.searchElevation::set)
     }
 
 }

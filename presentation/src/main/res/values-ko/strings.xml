@@ -206,7 +206,7 @@
     <string name="settings_vibration_title">진동</string>
     <string name="settings_ringtone_title">소리</string>
     <string name="settings_ringtone_none">없음</string>
-    <string name="settings_qkreply_title">QK Reply</string>
+    <string name="settings_qkreply_title">빠른 응답</string>
     <string name="settings_qkreply_summary">새로운 메시지에 대한 팝업</string>
     <string name="settings_qkreply_tap_dismiss_title">탭해서 닫기</string>
     <string name="settings_qkreply_tap_dismiss_summary">아무데나 탭하면 팝업이 닫힙니다.</string>
@@ -299,7 +299,7 @@
     <string name="messages_plus_donate">페이팔을 통해 기부</string>
     <string name="messages_plus_coming_soon">출시 예정</string>
     <string name="messages_plus_themes_title">프리미엄 테마</string>
-    <string name="messages_plus_themes_summary">Material Design 팔레트에선 볼 수 없던 아름다운 테마를 잠금해제 하세요!</string>
+    <string name="messages_plus_themes_summary">테마 및 색상 선택기의 모든 색상 잠금 해제</string>
     <string name="messages_plus_emoji_title">사용자 지정 이모티콘</string>
     <string name="messages_plus_emoji_summary">사용자 지정 이모티콘 바로 가기 만들기</string>
     <string name="messages_plus_backup_title">메시지 백업</string>
@@ -413,4 +413,10 @@
     <string name="about_rate_title">4Messages 평가</string>
     <string name="about_other_app_title">기타 앱</string>
     <string name="settings_gray_avatar_title">회색 연락처 아바타</string>
+    <string name="settings_sim_color_title">컬러 SIM 카드 아이콘</string>
+    <string name="settings_delayed_title_summary">보내기 전에 메시지를 취소하거나 변경할 수 있습니다.</string>
+    <string name="compose_menu_speech">음성 텍스트</string>
+    <string name="settings_sim_сonfigure_title">SIM 카드 구성</string>
+    <string name="settings_sim_color_summary">SIM 카드 아이콘의 색상 구성</string>
+    <string name="settings_search_elevation_title">고도 검색</string>
 </resources>

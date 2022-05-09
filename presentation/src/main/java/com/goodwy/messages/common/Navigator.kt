@@ -177,6 +177,12 @@ class Navigator @Inject constructor(
         startActivityExternal(intent)
     }
 
+    fun showWikiRegexps() {
+        val url = "https://en.wikipedia.org/wiki/Regular_expression"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivityExternal(intent)
+    }
+
     fun showRating() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.goodwy.messages"))
                 .addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY
@@ -189,6 +195,15 @@ class Navigator @Inject constructor(
             val url = "http://play.google.com/store/apps/details?id=com.goodwy.messages"
             startActivityExternal(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
         }
+    }
+
+    /**
+     * Launch the Play Store and display the Call Blocker listing
+     */
+    fun installCallBlocker() {
+        val url = "https://play.google.com/store/apps/details?id=com.cuiet.blockCalls"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivityExternal(intent)
     }
 
     /**

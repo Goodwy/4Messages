@@ -154,7 +154,9 @@ class MessageRepositoryImpl @Inject constructor(
 
         val extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(part.type) ?: return null
         val date = part.messages?.first()?.date
-        val dir = File(Environment.getExternalStorageDirectory(), "4messages/Media").apply { mkdirs() }
+        val child = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) "/Documents/4Messages/Media"
+                    else "/4Messages/Media"
+        val dir = File(Environment.getExternalStorageDirectory(), child).apply { mkdirs() }
         val fileName = part.name?.takeIf { name -> name.endsWith(extension) }
                 ?: "${part.type.split("/").last()}_$date.$extension"
         var file: File

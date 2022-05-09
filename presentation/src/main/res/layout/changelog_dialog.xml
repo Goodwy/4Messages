@@ -49,7 +49,7 @@
         app:layout_constraintBottom_toTopOf="@id/changelog"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintVertical_weight="1"
-        tools:text="Version 3.6.5" />
+        tools:text="Version 1.0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/changelog"

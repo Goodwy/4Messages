@@ -20,21 +20,27 @@ package com.goodwy.messages.feature.backup
 
 import android.Manifest
 import android.app.Activity
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Typeface
+import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.provider.DocumentsContract
+import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.view.children
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import com.goodwy.messages.BuildConfig
 import com.jakewharton.rxbinding2.view.clicks
 import com.goodwy.messages.R
 import com.goodwy.messages.common.base.QkController
 import com.goodwy.messages.common.util.DateFormatter
-import com.goodwy.messages.common.util.extensions.getLabel
-import com.goodwy.messages.common.util.extensions.setBackgroundTint
-import com.goodwy.messages.common.util.extensions.setPositiveButton
-import com.goodwy.messages.common.util.extensions.setTint
+import com.goodwy.messages.common.util.extensions.*
 import com.goodwy.messages.common.widget.PreferenceView
 import com.goodwy.messages.injection.appComponent
 import com.goodwy.messages.model.BackupFile
@@ -45,6 +51,10 @@ import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.backup_controller.*
 import kotlinx.android.synthetic.main.backup_list_dialog.view.*
 import kotlinx.android.synthetic.main.preference_view.view.*
+import java.io.File
+import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class BackupController : QkController<BackupView, BackupState, BackupPresenter>(), BackupView {
@@ -53,13 +63,27 @@ class BackupController : QkController<BackupView, BackupState, BackupPresenter>(
     @Inject lateinit var dateFormatter: DateFormatter
     @Inject override lateinit var presenter: BackupPresenter
 
+    private val PICK_IMPORT_SOURCE_INTENT = 11
+    private val PICK_EXPORT_SOURCE_INTENT = 22
+    private val PICK_OPEN_SOURCE_INTENT = 33
     private val activityVisibleSubject: Subject<Unit> = PublishSubject.create()
     private val confirmRestoreSubject: Subject<Unit> = PublishSubject.create()
     private val stopRestoreSubject: Subject<Unit> = PublishSubject.create()
 
     private val backupFilesDialog by lazy {
         val view = View.inflate(activity, R.layout.backup_list_dialog, null)
-                .apply { files.adapter = adapter.apply { emptyView = empty } }
+                .apply {
+                    themedActivity?.colors?.theme()?.let { theme ->
+                        select.setTextColor(theme.theme)
+                    }
+                    val directoryName = if (isRPlus()) Environment.getExternalStorageDirectory().toString() + "/Documents/4Messages/Backups"
+                                        else Environment.getExternalStorageDirectory().toString() + "/4Messages/Backups"
+                    directory.text = directoryName
+                    files.adapter = adapter.apply { emptyView = empty }
+                    select.setOnClickListener {
+                        tryRestoreBackup()
+                    }
+                }
 
         AlertDialog.Builder(activity!!)
                 .setView(view)
@@ -190,6 +214,17 @@ class BackupController : QkController<BackupView, BackupState, BackupPresenter>(
 
     override fun requestStoragePermission() {
         ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val uri = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
+            startActivity(
+                Intent(
+                    Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                    uri
+                )
+            )
+        } else {
+            ActivityCompat.requestPermissions(activity!!, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        }*/
     }
 
     override fun selectFile() = backupFilesDialog.show()
@@ -197,5 +232,70 @@ class BackupController : QkController<BackupView, BackupState, BackupPresenter>(
     override fun confirmRestore() = confirmRestoreDialog.show()
 
     override fun stopRestore() = stopRestoreDialog.show()
+
+    override fun openDirectory() {
+        backupFilesDialog.cancel()
+        Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).apply {
+            addFlags(
+                Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_WRITE_URI_PERMISSION or
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+            startActivityForResult(this, PICK_OPEN_SOURCE_INTENT)
+        }
+    }
+
+    override fun tryRestoreBackup() {
+        backupFilesDialog.cancel()
+        Intent(Intent.ACTION_GET_CONTENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "application/json"
+            startActivityForResult(this, PICK_IMPORT_SOURCE_INTENT)
+        }
+    }
+
+    override fun tryPerformBackup() {
+        val timestamp = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(System.currentTimeMillis())
+        Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "application/json"
+            putExtra(Intent.EXTRA_TITLE, "backup-$timestamp.json")
+            //putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+            startActivityForResult(this, PICK_EXPORT_SOURCE_INTENT)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        if (requestCode == PICK_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+            val file = resultData!!.data!!
+            val tempFile = getTempFile("messages", "backup.json")
+
+            try {
+                val inputStream = activity!!.contentResolver.openInputStream(file)
+                val out = FileOutputStream(tempFile)
+                inputStream!!.copyTo(out)
+                //activity!!.makeToast(tempFile!!.absolutePath)
+            } catch (e: Exception) {
+                activity!!.makeToast(e.toString())
+            }
+
+            RestoreBackupService.start(activity!!, tempFile!!.absolutePath)
+        }
+    }
+
+    override fun isRPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+
+    private fun getTempFile(folderName: String, fileName: String): File? {
+        val folder = File(activity!!.cacheDir, folderName)
+        if (!folder.exists()) {
+            if (!folder.mkdir()) {
+                activity!!.makeToast(folder.mkdir().toString())
+                return null
+            }
+        }
+
+        return File(folder, fileName)
+    }
 
 }

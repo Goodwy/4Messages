@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class BlockingManager @Inject constructor(
     private val prefs: Preferences,
+    private val callBlockerBlockingClient: CallBlockerBlockingClient,
     private val callControlBlockingClient: CallControlBlockingClient,
     private val qksmsBlockingClient: QksmsBlockingClient,
     private val shouldIAnswerBlockingClient: ShouldIAnswerBlockingClient
@@ -19,6 +20,7 @@ class BlockingManager @Inject constructor(
 
     private val client: BlockingClient
         get() = when (prefs.blockingManager.get()) {
+            Preferences.BLOCKING_MANAGER_CB -> callBlockerBlockingClient
             Preferences.BLOCKING_MANAGER_SIA -> shouldIAnswerBlockingClient
             Preferences.BLOCKING_MANAGER_CC -> callControlBlockingClient
             else -> qksmsBlockingClient
@@ -28,11 +30,19 @@ class BlockingManager @Inject constructor(
 
     override fun getClientCapability(): BlockingClient.Capability = client.getClientCapability()
 
-    override fun getAction(address: String): Single<BlockingClient.Action> = client.getAction(address)
+    override fun shouldBlock(address: String): Single<BlockingClient.Action> = client.shouldBlock(address)
 
-    override fun block(addresses: List<String>): Completable = client.block(addresses)
+    override fun isBlacklisted(address: String): Single<BlockingClient.Action> = client.isBlacklisted(address)
 
-    override fun unblock(addresses: List<String>): Completable = client.unblock(addresses)
+    override fun getActionFromContent(content: String): Single<BlockingClient.Action> = client.getActionFromContent(content)
+
+    override fun blockAddresses(addresses: List<String>): Completable = client.blockAddresses(addresses)
+
+    override fun unblockAddresses(addresses: List<String>): Completable = client.unblockAddresses(addresses)
+
+    override fun blockRegexps(regexps: List<String>): Completable = client.blockRegexps(regexps)
+
+    override fun unblockRegexps(regexps: List<String>): Completable = client.unblockRegexps(regexps)
 
     override fun openSettings() = client.openSettings()
 

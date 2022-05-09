@@ -23,10 +23,20 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.widget.ImageView
+import android.view.View
+import com.goodwy.messages.R
 import com.goodwy.messages.common.util.extensions.dpToPx
+import com.goodwy.messages.injection.appComponent
+import com.goodwy.messages.util.Preferences
+import javax.inject.Inject
 
-class BubbleImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ImageView(context, attrs) {
+class BubbleImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : androidx.appcompat.widget.AppCompatImageView(context, attrs) {
+
+    @Inject lateinit var prefs: Preferences
+
+    init {
+        appComponent.inject(this)
+    }
 
     enum class Style(val topLeft: Boolean, val topRight: Boolean, val bottomRight: Boolean, val bottomLeft: Boolean) {
 
@@ -47,8 +57,18 @@ class BubbleImageView @JvmOverloads constructor(context: Context, attrs: Attribu
         }
 
     private val path = Path()
-    private val radiusSmall = 4.dpToPx(context).toFloat()
-    private val radiusLarge = 18.dpToPx(context).toFloat()
+    private val radiusSmall = when (prefs.bubbleStyle.get()) {
+        1 -> 10.dpToPx(context).toFloat()
+        2 -> 18.dpToPx(context).toFloat()
+        3 -> 18.dpToPx(context).toFloat()
+        else -> 4.dpToPx(context).toFloat()
+    }
+    private val radiusLarge = when (prefs.bubbleStyle.get()) {
+        1 -> 10.dpToPx(context).toFloat()
+        2 -> 18.dpToPx(context).toFloat()
+        3 -> 18.dpToPx(context).toFloat()
+        else -> 18.dpToPx(context).toFloat()
+    }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)

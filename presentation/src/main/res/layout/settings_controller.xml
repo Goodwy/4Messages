@@ -39,6 +39,8 @@
             android:id="@+id/gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:icon="@drawable/ic_invert_colors_black_24dp"
+            android:paddingStart="16dp"
             android:visibility="gone"
             app:title="@string/settings_gray_title"
             app:widget="@layout/settings_switch_widget" />
@@ -47,6 +49,8 @@
             android:id="@+id/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:icon="@drawable/ic_invert_colors_black_24dp"
+            android:paddingStart="16dp"
             android:visibility="gone"
             app:title="@string/settings_black_title"
             app:widget="@layout/settings_switch_widget" />
@@ -56,6 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            app:icon="@drawable/ic_invert_colors_black_24dp"
+            android:paddingStart="16dp"
             app:title="@string/settings_night_start_title"
             tools:value="6:00PM" />
 
@@ -64,8 +70,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
+            app:icon="@drawable/ic_invert_colors_black_24dp"
+            android:paddingStart="16dp"
             app:title="@string/settings_night_end_title"
             tools:nightStart="9:00AM" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/searchElevation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:icon="@drawable/ic_menu_24dp"
+            app:title="@string/settings_search_elevation_title"
+            app:summary="@string/settings_search_elevation_summary"
+            tools:value="Small" />
 
         <com.goodwy.messages.common.widget.PreferenceView
             android:id="@+id/autoColor"
@@ -81,7 +99,86 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_person_black_24dp"
             app:title="@string/settings_gray_avatar_title"
+            app:summary="@string/settings_gray_avatar_summary"
             app:widget="@layout/settings_switch_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/speechBubble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_message_black_24dp"
+            app:title="@string/settings_speech_bubble_title"
+            app:widget="@layout/settings_chevron_widget" />
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/simConfigure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:icon="@drawable/ic_sim_card_black_24dp"
+            app:title="@string/settings_sim_сonfigure_title"
+            app:summary=" "
+            app:widget="@layout/settings_chevron_widget" />
+<!--
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/simColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_sim_card_black_24dp"
+            app:title="@string/settings_sim_color_title"
+            app:summary=" "
+            app:widget="@layout/settings_switch_widget" />
+-->
+        <LinearLayout
+            android:id="@+id/simIcons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:layout_marginTop="-28dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:id="@+id/sim1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_sim_card_black_24dp"
+                android:tint="@color/sim1" />
+
+            <ImageView
+                android:id="@+id/sim2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_sim_card_black_24dp"
+                android:tint="@color/sim2" />
+
+            <ImageView
+                android:id="@+id/sim3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_sim_card_black_24dp"
+                android:tint="@color/sim3" />
+
+            <ImageView
+                android:id="@+id/sim4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_sim_card_black_24dp"
+                android:tint="@color/sim4" />
+
+            <ImageView
+                android:id="@+id/sim5"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_sim_card_black_24dp"
+                android:tint="@color/sim_other" />
+
+        </LinearLayout>
 
         <com.goodwy.messages.common.widget.PreferenceView
             android:id="@+id/separator"
@@ -126,7 +223,7 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_notifications_black_24dp"
             app:title="@string/settings_notifications_title"
-            app:widget="@layout/settings_chevron_one_widget" />
+            app:widget="@layout/settings_chevron_widget" />
 
         <com.goodwy.messages.common.widget.PreferenceView
             android:id="@+id/autoEmoji"
@@ -142,6 +239,7 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_av_timer_black_24dp"
             app:title="@string/settings_delayed_title"
+            app:summary="@string/settings_delayed_title_summary"
             tools:value="No delay" />
 
         <com.goodwy.messages.common.widget.PreferenceView
@@ -152,7 +250,7 @@
             app:icon="@drawable/ic_clear_all_black_24dp"
             app:summary="@string/settings_swipe_actions_summary"
             app:title="@string/settings_swipe_actions"
-            app:widget="@layout/settings_chevron_two_widget" />
+            app:widget="@layout/settings_chevron_widget" />
 
         <com.goodwy.messages.common.widget.PreferenceView
             android:id="@+id/delivery"
@@ -250,7 +348,7 @@
             app:icon="@drawable/ic_info_black_24dp"
             app:title="@string/about_title"
             tools:summary="Version 3.0.7"
-            app:widget="@layout/settings_chevron_three_widget" />
+            app:widget="@layout/settings_chevron_widget" />
 
     </LinearLayout>
 

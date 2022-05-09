@@ -2,6 +2,7 @@ package com.goodwy.messages.common.util
 
 import android.content.Context
 import android.graphics.Color
+import androidx.annotation.ColorRes
 import androidx.core.content.res.getColorOrThrow
 import com.goodwy.messages.R
 import com.goodwy.messages.common.util.extensions.getColorCompat
@@ -136,4 +137,35 @@ class Colors @Inject constructor(
         val index = recipient.address.hashCode().absoluteValue % randomColors.size
         return randomColors[index]
     }
+
+    @ColorRes
+    fun colorForSim(context: Context, index: Int) =
+        if (index == 1) {
+            when (prefs.sim1Color.get()) {
+                Preferences.SIM_COLOR_BLUE -> context.getColorCompat(R.color.sim1)
+                Preferences.SIM_COLOR_GREEN -> context.getColorCompat(R.color.sim2)
+                Preferences.SIM_COLOR_YELLOW -> context.getColorCompat(R.color.sim3)
+                Preferences.SIM_COLOR_RED -> context.getColorCompat(R.color.sim4)
+                Preferences.SIM_COLOR_PURPLE -> context.getColorCompat(R.color.sim_other)
+                else -> context.getColorCompat(R.color.sim1)
+            }
+        } else if (index == 2) {
+            when (prefs.sim2Color.get()) {
+                Preferences.SIM_COLOR_BLUE -> context.getColorCompat(R.color.sim1)
+                Preferences.SIM_COLOR_GREEN -> context.getColorCompat(R.color.sim2)
+                Preferences.SIM_COLOR_YELLOW -> context.getColorCompat(R.color.sim3)
+                Preferences.SIM_COLOR_RED -> context.getColorCompat(R.color.sim4)
+                Preferences.SIM_COLOR_PURPLE -> context.getColorCompat(R.color.sim_other)
+                else -> context.getColorCompat(R.color.sim1)
+            }
+        } else {
+            when (prefs.sim3Color.get()) {
+                Preferences.SIM_COLOR_BLUE -> context.getColorCompat(R.color.sim1)
+                Preferences.SIM_COLOR_GREEN -> context.getColorCompat(R.color.sim2)
+                Preferences.SIM_COLOR_YELLOW -> context.getColorCompat(R.color.sim3)
+                Preferences.SIM_COLOR_RED -> context.getColorCompat(R.color.sim4)
+                Preferences.SIM_COLOR_PURPLE -> context.getColorCompat(R.color.sim_other)
+                else -> context.getColorCompat(R.color.sim1)
+            }
+        }
 }

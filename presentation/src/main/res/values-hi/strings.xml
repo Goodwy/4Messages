@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">दिखावट</string>
     <string name="settings_category_general">सामान्य</string>
-    <string name="settings_category_qkreply">QK उत्तर</string>
+    <string name="settings_category_qkreply">जल्दी जवाब दो</string>
     <string name="settings_theme_title">थीम</string>
     <string name="settings_night_title">रात्रि अंदाज़</string>
     <string name="settings_black_title">शुद्ध काली रात अंदाज़</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">कंपन</string>
     <string name="settings_ringtone_title">ध्वनियाँ</string>
     <string name="settings_ringtone_none">कुछ नहीं</string>
-    <string name="settings_qkreply_title">QK जवाब</string>
+    <string name="settings_qkreply_title">जल्दी जवाब दो</string>
     <string name="settings_qkreply_summary">Popup for new messages</string>
     <string name="settings_qkreply_tap_dismiss_title">Tap to dismiss</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tap outside of the popup to close it</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Donate via PayPal</string>
     <string name="messages_plus_coming_soon">जल्द आ रहा है</string>
     <string name="messages_plus_themes_title">Premium themes</string>
-    <string name="messages_plus_themes_summary">Unlock beautiful theme colors not available on the Material Design palette</string>
+    <string name="messages_plus_themes_summary">थीम और कलर पिकर के सभी रंगों को अनलॉक करें</string>
     <string name="messages_plus_emoji_title">Custom auto-emoji</string>
     <string name="messages_plus_emoji_summary">Create custom auto-emoji shortcuts</string>
     <string name="messages_plus_backup_title">Message backup</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">दर 4Messages</string>
     <string name="about_other_app_title">दूसरे एप्लिकेशन</string>
     <string name="settings_gray_avatar_title">ग्रे संपर्क अवतार</string>
+    <string name="settings_sim_color_title">रंगीन सिम-कार्ड आइकन</string>
+    <string name="settings_delayed_title_summary">आपको भेजने से पहले संदेश को रद्द करने या बदलने की अनुमति देता है</string>
+    <string name="compose_menu_speech">वाक् पाठ</string>
+    <string name="settings_sim_сonfigure_title">SIM कार्ड कॉन्फ़िगर करें</string>
+    <string name="settings_sim_color_summary">SIM कार्ड चिह्नों का रंग कॉन्फ़िगर करें</string>
+    <string name="settings_search_elevation_title">ऊँचाई खोजें</string>
 </resources>

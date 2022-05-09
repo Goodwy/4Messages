@@ -13,6 +13,7 @@ data class SettingsState(
     val gray: Boolean = false,
     val autoColor: Boolean = true,
     val grayAvatar: Boolean = true,
+    val simColor: Boolean = true,
     val separator: Boolean = true,
     val autoEmojiEnabled: Boolean = true,
     val notificationsEnabled: Boolean = true,
@@ -30,5 +31,7 @@ data class SettingsState(
     val longAsMms: Boolean = false,
     val maxMmsSizeSummary: String = "100KB",
     val maxMmsSizeId: Int = 100,
+    val maxSearchElevationSummary: String = "Normal",
+    val maxSearchElevationId: Int = 32,
     val syncProgress: SyncRepository.SyncProgress = SyncRepository.SyncProgress.Idle
 )

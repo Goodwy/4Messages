@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground">
+
+    <LinearLayout
+        android:id="@+id/preferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/bubbleColorInvert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/settings_speech_bubble_invert_title"
+            app:widget="@layout/settings_switch_widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.goodwy.messages.common.widget.PreferenceView
+            android:id="@+id/bubbleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bubbleColorInvert"
+            app:title="@string/settings_speech_bubble_style_title"
+            tools:value="Original" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/styleHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/x50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.50"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/styleOriginal"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/rounded_rectangle_outline_2dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:backgroundTint="?android:attr/divider"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/x50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/styleOriginalСheck"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/radio_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:tint="?android:attr/textColorTertiary" />
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleOriginalBubbleOne"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="52dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleOriginalBubbleTwo"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="36dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="How are you?"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleOriginalBubbleOne"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleOriginalBubbleThree"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleOriginalBubbleTwo"
+                    app:layout_constraintWidth_max="384dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/styleIos"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/rounded_rectangle_outline_2dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:backgroundTint="?android:attr/divider"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/x50"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/styleIosСheck"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/radio_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:tint="?android:attr/textColorTertiary" />
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleIosBubbleOne"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="52dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleIosBubbleTwo"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="36dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="How are you?"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleIosBubbleOne"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleIosBubbleThree"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleIosBubbleTwo"
+                    app:layout_constraintWidth_max="384dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/styleSimple"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/rounded_rectangle_outline_2dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:backgroundTint="?android:attr/divider"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@+id/x50"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/styleOriginal">
+
+                <ImageView
+                    android:id="@+id/styleSimpleСheck"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/radio_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:tint="?android:attr/textColorTertiary" />
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleSimpleBubbleOne"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="52dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleSimpleBubbleTwo"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="36dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="How are you?"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleSimpleBubbleOne"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleSimpleBubbleThree"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleSimpleBubbleTwo"
+                    app:layout_constraintWidth_max="384dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/styleTriangle"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/rounded_rectangle_outline_2dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:backgroundTint="?android:attr/divider"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/x50"
+                app:layout_constraintTop_toBottomOf="@+id/styleOriginal">
+
+                <ImageView
+                    android:id="@+id/styleTriangleСheck"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/radio_button"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:tint="?android:attr/textColorTertiary" />
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleTriangleBubbleOne"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="52dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleTriangleBubbleTwo"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="36dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="How are you?"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleTriangleBubbleOne"
+                    app:layout_constraintWidth_max="384dp"
+                    tools:backgroundTint="@color/tools_theme"/>
+
+                <com.goodwy.messages.common.widget.TightTextView
+                    android:id="@+id/styleTriangleBubbleThree"
+                    style="@style/TextPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:autoLink="email|phone|web"
+                    android:background="@drawable/message_only"
+                    android:backgroundTint="?attr/bubbleColor"
+                    android:gravity="start|center_vertical"
+                    android:minHeight="36dp"
+                    android:text="Hey!"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/styleTriangleBubbleTwo"
+                    app:layout_constraintWidth_max="384dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_rectangle_24dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:backgroundTint="@color/tools_theme"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/fabIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_star_black_24dp"
+            tools:tint="@color/textPrimaryDark" />
+
+        <com.goodwy.messages.common.widget.QkTextView
+            android:id="@+id/fabLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/title_messages_plus"
+            android:textColor="@color/textPrimaryDark"
+            android:textStyle="bold"
+            app:textSize="primary" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

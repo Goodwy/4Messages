@@ -1,5 +1,6 @@
 package com.goodwy.messages.common.util
 
+import android.os.Build
 import android.os.Environment
 import android.util.Log
 import com.goodwy.messages.util.Preferences
@@ -41,7 +42,9 @@ class FileLoggingTree @Inject constructor(private val prefs: Preferences) : Timb
             synchronized(fileLock) {
                 try {
                     // Create the directory
-                    val dir = File(Environment.getExternalStorageDirectory(), "4messages/Logs").apply { mkdirs() }
+                    val child = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) "/Documents/4Messages/Logs"
+                                else "/4Messages/Logs"
+                    val dir = File(Environment.getExternalStorageDirectory(), child).apply { mkdirs() }
 
                     // Create the file
                     val file = File(dir, "${SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(System.currentTimeMillis())}.log")

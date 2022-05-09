@@ -299,7 +299,7 @@
     <string name="messages_plus_donate">使用PayPal捐贈</string>
     <string name="messages_plus_coming_soon">即將推出</string>
     <string name="messages_plus_themes_title">高級主題</string>
-    <string name="messages_plus_themes_summary">解鎖 \"Material Design\" 調色板中不可用的美麗彩色主題</string>
+    <string name="messages_plus_themes_summary">解锁主题和颜色选择器的所有颜色</string>
     <string name="messages_plus_emoji_title">自定義自動emoji</string>
     <string name="messages_plus_emoji_summary">創建自定義自動emoji的快捷方式</string>
     <string name="messages_plus_backup_title">訊息備份</string>
@@ -411,4 +411,10 @@
     <string name="about_rate_title">评价 4 条消息</string>
     <string name="about_other_app_title">其他应用</string>
     <string name="settings_gray_avatar_title">灰色联系人头像</string>
+    <string name="settings_sim_color_title">彩色的 SIM 卡圖標</string>
+    <string name="settings_delayed_title_summary">允許您在發送郵件之前取消或更改郵件</string>
+    <string name="compose_menu_speech">語音文本</string>
+    <string name="settings_sim_сonfigure_title">配置 SIM 卡</string>
+    <string name="settings_sim_color_summary">配置 SIM 卡圖標的顏色</string>
+    <string name="settings_search_elevation_title">搜索高程</string>
 </resources>

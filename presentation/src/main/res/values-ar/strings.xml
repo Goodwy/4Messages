@@ -195,7 +195,7 @@
     </string-array>
     <string name="settings_category_appearance">المظهر</string>
     <string name="settings_category_general">عام</string>
-    <string name="settings_category_qkreply">رد QK</string>
+    <string name="settings_category_qkreply">ردرد سريع</string>
     <string name="settings_theme_title">السمة</string>
     <string name="settings_night_title">الوضع الليلي</string>
     <string name="settings_black_title">وضع ليلي بسوادٍ حالك</string>
@@ -216,7 +216,7 @@
     <string name="settings_vibration_title">الاهتزاز</string>
     <string name="settings_ringtone_title">الصوت</string>
     <string name="settings_ringtone_none">بدون نغمة </string>
-    <string name="settings_qkreply_title">رد QK</string>
+    <string name="settings_qkreply_title">ردرد سريع</string>
     <string name="settings_qkreply_summary">نافذة منبثقة للرسائل الجديدة</string>
     <string name="settings_qkreply_tap_dismiss_title">إلمس للاستبعاد</string>
     <string name="settings_qkreply_tap_dismiss_summary">إلمس خارج المنبثقة لإغلاقها</string>
@@ -324,7 +324,7 @@
     <string name="messages_plus_donate">التبرع عن طريق بي بال</string>
     <string name="messages_plus_coming_soon">قريباً</string>
     <string name="messages_plus_themes_title">سمات فاخرة</string>
-    <string name="messages_plus_themes_summary">استفد من ألوان رائعة للسمات لاتوجد في لوح ألوان Material Design</string>
+    <string name="messages_plus_themes_summary">افتح جميع ألوان السمة ومنتقي الألوان</string>
     <string name="messages_plus_emoji_title">إيموجي تلقائية ومخصصة</string>
     <string name="messages_plus_emoji_summary">إنشاء اختصارات إيموجي تلقائية ومخصّصة</string>
     <string name="messages_plus_backup_title">النسخ الاحتياطي للرسائل</string>
@@ -442,4 +442,10 @@
     <string name="about_rate_title">معدل 4Messages</string>
     <string name="about_other_app_title">تطبيقات أخرى</string>
     <string name="settings_gray_avatar_title">تجسدات الاتصال الرمادية</string>
+    <string name="settings_sim_color_title" translatable="false">رموز بطاقات SIM الملونة</string>
+    <string name="settings_delayed_title_summary">يسمح لك بإلغاء الرسالة أو تغييرها قبل الإرسال</string>
+    <string name="compose_menu_speech">نص الكلام</string>
+    <string name="settings_sim_сonfigure_title">تكوين بطاقات SIM</string>
+    <string name="settings_sim_color_summary">تكوين لون أيقونات بطاقات SIM</string>
+    <string name="settings_search_elevation_title">ارتفاع البحث</string>
 </resources>

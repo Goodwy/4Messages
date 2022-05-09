@@ -6,8 +6,8 @@
     android:paddingStart="8dp"
     android:paddingEnd="8dp">
 
-    <View
-    android:id="@+id/chevronThree"
+    <ImageView
+    android:id="@+id/chevron"
     android:layout_width="28dp"
     android:layout_height="28dp"
     android:layout_gravity="center"

@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Udseende</string>
     <string name="settings_category_general">Generelt</string>
-    <string name="settings_category_qkreply">QK-svar</string>
+    <string name="settings_category_qkreply">Hurtigt svar</string>
     <string name="settings_theme_title">Tema</string>
     <string name="settings_night_title">Nattilstand</string>
     <string name="settings_black_title">Ren sort nattilstand</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Vibration</string>
     <string name="settings_ringtone_title">Lyd</string>
     <string name="settings_ringtone_none">Ingen</string>
-    <string name="settings_qkreply_title">QK-besvarelse</string>
+    <string name="settings_qkreply_title">Hurtigt svar</string>
     <string name="settings_qkreply_summary">Popup ved nye SMS\'er</string>
     <string name="settings_qkreply_tap_dismiss_title">Tryk for at afvise</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tryk udenfor popup-vinduet for at lukke det</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Donér via PayPal</string>
     <string name="messages_plus_coming_soon">Kommer snart</string>
     <string name="messages_plus_themes_title">Premium-temaer</string>
-    <string name="messages_plus_themes_summary">Oplås smukke temafarver, som ikke er tilgængelig på Material Design-paletten</string>
+    <string name="messages_plus_themes_summary">Lås op for alle farverne på temaet og farvevælgeren</string>
     <string name="messages_plus_emoji_title">Tilpasset auto-emoji</string>
     <string name="messages_plus_emoji_summary">Opret tilpassede auto-emoji-genveje</string>
     <string name="messages_plus_backup_title">Beskedsikkerhedskopiering</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Bedøm 4Messages</string>
     <string name="about_other_app_title">Andre apps</string>
     <string name="settings_gray_avatar_title">Grå kontaktavatarer</string>
+    <string name="settings_sim_color_title">Farvede SIM-kort ikoner</string>
+    <string name="settings_delayed_title_summary">Giver dig mulighed for at annullere eller ændre meddelelsen, før du sender</string>
+    <string name="compose_menu_speech">Tale tekst</string>
+    <string name="settings_sim_сonfigure_title">Konfigurer SIM-kort</string>
+    <string name="settings_sim_color_summary">Konfigurer farven på SIM-kortikoner</string>
+    <string name="settings_search_elevation_title">Søg i højde</string>
 </resources>

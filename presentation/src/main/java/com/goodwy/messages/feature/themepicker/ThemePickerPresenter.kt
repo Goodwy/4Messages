@@ -42,12 +42,12 @@ class ThemePickerPresenter @Inject constructor(
                     }
                 }
 
-        val color_1 : Int = android.graphics.Color.parseColor("#ff453a")
-        val color_2 : Int = android.graphics.Color.parseColor("#ff3b30")
-        val color_3 : Int = android.graphics.Color.parseColor("#ff9f0a")
-        val color_4 : Int = android.graphics.Color.parseColor("#ff9500")
-        val color_5 : Int = android.graphics.Color.parseColor("#ffd60a")
-        val cols = listOf(color_1, color_2, color_3, color_4, color_5)
+        val color1 : Int = android.graphics.Color.parseColor("#ff453a")
+        val color2 : Int = android.graphics.Color.parseColor("#ff3b30")
+        val color3 : Int = android.graphics.Color.parseColor("#ff9f0a")
+        val color4 : Int = android.graphics.Color.parseColor("#ff9500")
+        val color5 : Int = android.graphics.Color.parseColor("#ffd60a")
+        val cols = listOf(color1, color2, color3, color4, color5)
         for(col in cols)
         view.themeIosSelected()
                 .withLatestFrom(billingManager.upgradeStatus) { color, upgraded ->

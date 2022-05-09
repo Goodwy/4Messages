@@ -1,21 +1,3 @@
-/*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.goodwy.messages.blocking
 
 import io.reactivex.Completable
@@ -37,6 +19,14 @@ interface BlockingClient {
         // This means there's a good chance that if a number is blocked in QK, it won't be blocked there, so we
         // shouldn't unblock the conversation in that case
         object DoNothing : Action()
+
+        override fun toString(): String {
+            return when (this) {
+                is Block -> "Block"
+                is Unblock -> "Unblock"
+                is DoNothing -> "DoNothing"
+            }
+        }
     }
 
     /**
@@ -52,17 +42,47 @@ interface BlockingClient {
     /**
      * Returns the recommendation action to perform given a message from the [address]
      */
-    fun getAction(address: String): Single<Action>
+    fun shouldBlock(address: String): Single<Action> = Single.fromCallable {
+        BlockingClient.Action.Unblock
+    }
+
+    /**
+     * Returns whether or not the [address] is in the blocking manager's blacklist
+     * In most cases this will return the same result as [shouldBlock], but it's possible for an app's blacklist
+     * to be temporarily deactivated, in which case the results will differ
+     */
+    fun isBlacklisted(address: String): Single<Action>
+
+    /**
+     * Returns the recommendation action to perform given a message from the [content]
+     */
+    fun getActionFromContent(content: String): Single<Action> = Single.fromCallable {
+        BlockingClient.Action.Unblock
+    }
 
     /**
      * Blocks the numbers or opens the manager
      */
-    fun block(addresses: List<String>): Completable
+    fun blockAddresses(addresses: List<String>): Completable
 
     /**
      * Unblocks the numbers or opens the manager
      */
-    fun unblock(addresses: List<String>): Completable
+    fun unblockAddresses(addresses: List<String>): Completable
+
+    /**
+     * Blocks the regexps
+     */
+    fun blockRegexps(regexps: List<String>): Completable = Completable.fromCallable {
+        // Do nothing by default
+    }
+
+    /**
+     * Unblocks the regexps
+     */
+    fun unblockRegexps(regexps: List<String>): Completable = Completable.fromCallable {
+        // Do nothing by default
+    }
 
     /**
      * Opens the settings page for the blocking manager

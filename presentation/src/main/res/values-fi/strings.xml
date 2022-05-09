@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Ulkonäkö</string>
     <string name="settings_category_general">Yleiset</string>
-    <string name="settings_category_qkreply">QK-vastaus</string>
+    <string name="settings_category_qkreply">Nopea vastaus</string>
     <string name="settings_theme_title">Teema</string>
     <string name="settings_night_title">Yötila</string>
     <string name="settings_black_title">Musta yötilä</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Värinä</string>
     <string name="settings_ringtone_title">Ääni</string>
     <string name="settings_ringtone_none">Ei mitään</string>
-    <string name="settings_qkreply_title">QK-vastaus</string>
+    <string name="settings_qkreply_title">Nopea vastaus</string>
     <string name="settings_qkreply_summary">Ponnahdusikkuna uusille viesteille</string>
     <string name="settings_qkreply_tap_dismiss_title">Sulje napauttamalla</string>
     <string name="settings_qkreply_tap_dismiss_summary">Sulje ponnahdusikkuna napauttamalla sen ulkopuolelle</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Lahjoita PayPalilla</string>
     <string name="messages_plus_coming_soon">Tulossa pian</string>
     <string name="messages_plus_themes_title">Premium-teemat</string>
-    <string name="messages_plus_themes_summary">Avaa upeat teemavärit, joita ei ole saatavilla Material Design -väripaletissa</string>
+    <string name="messages_plus_themes_summary">Avaa kaikki teeman ja värivalitsimen värit</string>
     <string name="messages_plus_emoji_title">Mukautettu auto-emoji</string>
     <string name="messages_plus_emoji_summary">Luo mukautettuja auto-emoji -pikakuvakkeita</string>
     <string name="messages_plus_backup_title">Viestien varmuuskopiointi</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Arvioi 4Messages</string>
     <string name="about_other_app_title">Muut sovellukset</string>
     <string name="settings_gray_avatar_title">Harmaat kontaktihahmot</string>
+    <string name="settings_sim_color_title">Värilliset SIM-korttien kuvakkeet</string>
+    <string name="settings_delayed_title_summary">Voit peruuttaa viestin tai muuttaa sitä ennen</string>
+    <string name="compose_menu_speech">Puheen teksti</string>
+    <string name="settings_sim_сonfigure_title">SIM-korttien määrittäminen</string>
+    <string name="settings_sim_color_summary">SIM-korttikuvakkeiden värin määrittäminen</string>
+    <string name="settings_search_elevation_title">Haun korkeus</string>
 </resources>

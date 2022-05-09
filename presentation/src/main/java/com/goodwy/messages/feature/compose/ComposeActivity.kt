@@ -1,21 +1,3 @@
-/*
- * Copyright (C) 2017 Moez Bhatti <moez.bhatti@gmail.com>
- *
- * This file is part of QKSMS.
- *
- * QKSMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * QKSMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
- */
 package com.goodwy.messages.feature.compose
 
 import android.Manifest
@@ -30,7 +12,10 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
+import android.provider.Settings
+import android.speech.tts.TextToSpeech
 import android.text.format.DateFormat
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
@@ -38,6 +23,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.goodwy.messages.BuildConfig
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.jakewharton.rxbinding2.view.clicks
@@ -46,19 +32,12 @@ import com.goodwy.messages.R
 import com.goodwy.messages.common.Navigator
 import com.goodwy.messages.common.base.QkThemedActivity
 import com.goodwy.messages.common.util.DateFormatter
-import com.goodwy.messages.common.util.extensions.autoScrollToStart
-import com.goodwy.messages.common.util.extensions.dismissKeyboard
-import com.goodwy.messages.common.util.extensions.hideKeyboard
-import com.goodwy.messages.common.util.extensions.resolveThemeColor
-import com.goodwy.messages.common.util.extensions.scrapViews
-import com.goodwy.messages.common.util.extensions.setBackgroundTint
-import com.goodwy.messages.common.util.extensions.setTint
-import com.goodwy.messages.common.util.extensions.setVisible
-import com.goodwy.messages.common.util.extensions.showKeyboard
+import com.goodwy.messages.common.util.extensions.*
 import com.goodwy.messages.feature.compose.editing.ChipsAdapter
 import com.goodwy.messages.feature.contacts.ContactsActivity
 import com.goodwy.messages.model.Attachment
 import com.goodwy.messages.model.Recipient
+import com.goodwy.messages.util.Preferences
 import com.uber.autodispose.android.lifecycle.scope
 import com.uber.autodispose.autoDisposable
 import dagger.android.AndroidInjection
@@ -70,8 +49,12 @@ import java.util.*
 import javax.inject.Inject
 import kotlin.collections.HashMap
 import kotlinx.android.synthetic.main.compose_activity.*
+import kotlinx.android.synthetic.main.compose_activity.attachments
+import kotlinx.android.synthetic.main.compose_activity.sim
+import kotlinx.android.synthetic.main.compose_activity.simIndex
+import kotlinx.android.synthetic.main.message_list_item_in.*
 
-class ComposeActivity : QkThemedActivity(), ComposeView {
+class ComposeActivity : QkThemedActivity(), ComposeView, TextToSpeech.OnInitListener {
 
     companion object {
         private const val SelectContactRequestCode = 0
@@ -119,6 +102,7 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
     private val viewModel by lazy { ViewModelProviders.of(this, viewModelFactory)[ComposeViewModel::class.java] }
 
     private var cameraDestination: Uri? = null
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -162,6 +146,8 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
         if (Build.VERSION.SDK_INT <= 22) {
             messageBackground.setBackgroundTint(resolveThemeColor(R.attr.bubbleColor))
         }
+        // Set tts info
+        tts = TextToSpeech(this, this)
     }
 
     override fun onStart() {
@@ -211,6 +197,7 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
         toolbar.menu.findItem(R.id.previous)?.isVisible = state.selectedMessages == 0 && state.query.isNotEmpty()
         toolbar.menu.findItem(R.id.next)?.isVisible = state.selectedMessages == 0 && state.query.isNotEmpty()
         toolbar.menu.findItem(R.id.clear)?.isVisible = state.selectedMessages == 0 && state.query.isNotEmpty()
+        toolbar.menu.findItem(R.id.speech)?.isVisible = !state.editingMode && state.selectedMessages == 1
 
         chipsAdapter.data = state.selectedChips
 
@@ -235,12 +222,38 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
         counter.text = state.remaining
         counter.setVisible(counter.text.isNotBlank())
 
+        /*val simColor = when (state.subscription?.simSlotIndex?.plus(1)?.toString()) {
+            "1" -> getColorCompat(R.color.sim1)
+            "2" -> getColorCompat(R.color.sim2)
+            "3" -> getColorCompat(R.color.sim3)
+            "4" -> getColorCompat(R.color.sim4)
+            else -> getColorCompat(R.color.sim_other)
+        }*/
+        val simColor = when (state.subscription?.simSlotIndex?.plus(1)?.toString()) {
+            "1" -> colors.colorForSim(this, 1)
+            "2" -> colors.colorForSim(this, 2)
+            "3" -> colors.colorForSim(this, 3)
+            else -> colors.colorForSim(this, 1)
+        }
+        if (prefs.simColor.get()) {
+            sim.setTint(simColor)
+        }
+
         sim.setVisible(state.subscription != null)
         sim.contentDescription = getString(R.string.compose_sim_cd, state.subscription?.displayName)
         simIndex.text = state.subscription?.simSlotIndex?.plus(1)?.toString()
 
         send.isEnabled = state.canSend
         send.imageAlpha = if (state.canSend) 255 else 128
+
+        val delay = when (prefs.sendDelay.get()) {
+            Preferences.SEND_DELAY_SHORT -> true
+            Preferences.SEND_DELAY_MEDIUM -> true
+            Preferences.SEND_DELAY_LONG -> true
+            else -> false
+        }
+        if (delay && state.canSend/* && !state.attachments.isNotEmpty() && messageAdapter.conversation?.recipients?.size!! == 1*/) send.setImageDrawable(resources.getDrawable(R.drawable.ic_send_delay_black_24dp))
+            else send.setImageDrawable(resources.getDrawable(R.drawable.ic_send_black_24dp))
     }
 
     override fun clearSelection() = messageAdapter.clearSelection()
@@ -253,12 +266,26 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
                 .show()
     }
 
+    override fun speechText(text: String) {
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
+    }
+
     override fun requestDefaultSms() {
         navigator.showDefaultSmsDialog(this)
     }
 
     override fun requestStoragePermission() {
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val uri = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
+            startActivity(
+                Intent(
+                    Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+                    uri
+                )
+            )
+        } else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+        }
     }
 
     override fun requestSmsPermission() {
@@ -310,6 +337,8 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
             message.showKeyboard()
         }, 200)
     }
+
+    override fun isRPlus() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
 
     override fun requestCamera() {
         cameraDestination = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
@@ -394,11 +423,34 @@ class ComposeActivity : QkThemedActivity(), ComposeView {
         super.onSaveInstanceState(outState)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        cameraDestination = savedInstanceState?.getParcelable(CameraDestinationKey)
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        cameraDestination = savedInstanceState.getParcelable(CameraDestinationKey)
         super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onBackPressed() = backPressedIntent.onNext(Unit)
+
+    // Text to speech
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.getDefault())
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The default language is not supported !")
+            }
+
+        } else {
+            Log.e("TTS", "Initialization failed !")
+        }
+    }
+
+    override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+
+        super.onDestroy()
+    }
 
 }

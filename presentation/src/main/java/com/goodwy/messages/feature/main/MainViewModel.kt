@@ -32,6 +32,9 @@ import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.rxkotlin.withLatestFrom
 import io.reactivex.schedulers.Schedulers
 import io.realm.Realm
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -150,12 +153,11 @@ class MainViewModel @Inject constructor(
         // Show changelog
         /*if (changelogManager.didUpdate()) {
             if (Locale.getDefault().language.startsWith("en")) {
-                disposables += changelogManager.getChangelog()
-                        .timeout(3, TimeUnit.SECONDS) // If it takes long than 3s, we'll just try again next time
-                        .subscribe({ changelog ->
+                GlobalScope.launch(Dispatchers.Main) {
+                    val changelog = changelogManager.getChangelog()
                             changelogManager.markChangelogSeen()
                             view.showChangelog(changelog)
-                        }, {}) // Ignore error
+                }
             } else {
                 changelogManager.markChangelogSeen()
             }
@@ -170,6 +172,7 @@ class MainViewModel @Inject constructor(
         view.queryChangedIntent
                 .debounce(200, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
+                .map { query -> query.trim() }
                 .withLatestFrom(state) { query, state ->
                     if (query.isEmpty() && state.page is Searching) {
                         newState { copy(page = Inbox(data = conversationRepo.getConversations())) }
@@ -177,7 +180,6 @@ class MainViewModel @Inject constructor(
                     query
                 }
                 .filter { query -> query.length >= 2 }
-                .map { query -> query.trim() }
                 .distinctUntilChanged()
                 .doOnNext {
                     newState {

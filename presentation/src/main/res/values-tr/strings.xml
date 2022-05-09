@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Görünüm</string>
     <string name="settings_category_general">Genel</string>
-    <string name="settings_category_qkreply">QK Yanıt</string>
+    <string name="settings_category_qkreply">Hızlı cevap</string>
     <string name="settings_theme_title">Tema</string>
     <string name="settings_night_title">Gece Modu</string>
     <string name="settings_black_title">Saf siyah gece modu</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Titreşim</string>
     <string name="settings_ringtone_title">Ses</string>
     <string name="settings_ringtone_none">Hiçbiri</string>
-    <string name="settings_qkreply_title">QK Yanıt</string>
+    <string name="settings_qkreply_title">Hızlı cevap</string>
     <string name="settings_qkreply_summary">Yeni iletiler için açılan menü</string>
     <string name="settings_qkreply_tap_dismiss_title">Kapatmak için dokunun</string>
     <string name="settings_qkreply_tap_dismiss_summary">Açılır pencereyi kapatmak için pencere dışındaki herhangi bir yere dokunun</string>
@@ -419,4 +419,10 @@ BAĞLAM İSTEĞİ</string>
     <string name="about_rate_title">4Messages Değerlendir</string>
     <string name="about_other_app_title">Diğer uygulamalar</string>
     <string name="settings_gray_avatar_title">Gri temas avatarları</string>
+    <string name="settings_sim_color_title">Renkli SIM kart simgeleri</string>
+    <string name="settings_delayed_title_summary">Göndermeden önce mesajı iptal etmenizi veya değiştirmenizi sağlar</string>
+    <string name="compose_menu_speech">Konuşma metni</string>
+    <string name="settings_sim_сonfigure_title">SIM kartları yapılandırma</string>
+    <string name="settings_sim_color_summary">SIM kart simgelerinin rengini yapılandırma</string>
+    <string name="settings_search_elevation_title">Arama yüksekliği</string>
 </resources>

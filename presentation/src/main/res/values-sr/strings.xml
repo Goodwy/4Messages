@@ -189,7 +189,7 @@
     </string-array>
     <string name="settings_category_appearance">Appearance</string>
     <string name="settings_category_general">General</string>
-    <string name="settings_category_qkreply">QK Reply</string>
+    <string name="settings_category_qkreply">Quick Reply</string>
     <string name="settings_theme_title">Theme</string>
     <string name="settings_night_title">Night mode</string>
     <string name="settings_black_title">Pure black night mode</string>
@@ -210,7 +210,7 @@
     <string name="settings_vibration_title">Vibration</string>
     <string name="settings_ringtone_title">Sound</string>
     <string name="settings_ringtone_none">None</string>
-    <string name="settings_qkreply_title">QK Reply</string>
+    <string name="settings_qkreply_title">Quick Reply</string>
     <string name="settings_qkreply_summary">Popup for new messages</string>
     <string name="settings_qkreply_tap_dismiss_title">Tap to dismiss</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tap outside of the popup to close it</string>
@@ -309,7 +309,7 @@
     <string name="messages_plus_donate">Donate via PayPal</string>
     <string name="messages_plus_coming_soon">Coming soon</string>
     <string name="messages_plus_themes_title">Premium themes</string>
-    <string name="messages_plus_themes_summary">Unlock beautiful theme colors not available on the Material Design palette</string>
+    <string name="messages_plus_themes_summary">Откључајте све боје теме и бирач боја</string>
     <string name="messages_plus_emoji_title">Custom auto-emoji</string>
     <string name="messages_plus_emoji_summary">Create custom auto-emoji shortcuts</string>
     <string name="messages_plus_backup_title">Message backup</string>
@@ -423,4 +423,10 @@
     <string name="about_rate_title">Rate 4Messages</string>
     <string name="about_other_app_title">Other Apps</string>
     <string name="settings_gray_avatar_title">Gray contact avatars</string>
+    <string name="settings_sim_color_title">SIM cards colored icons</string>
+    <string name="settings_delayed_title_summary">Dozvoljava vam da otkažete ili promenite poruku pre slanja</string>
+    <string name="compose_menu_speech">Tekst govora</string>
+    <string name="settings_sim_сonfigure_title">Konfigurisanje SIM kartica</string>
+    <string name="settings_sim_color_summary">Konfigurisanje boje ikona SIM kartica</string>
+    <string name="settings_search_elevation_title">Uzdizanje pretrage</string>
 </resources>

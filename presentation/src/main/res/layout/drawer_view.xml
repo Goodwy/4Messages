@@ -176,7 +176,8 @@
 
         <LinearLayout
             android:id="@+id/invite"
-            style="@style/DrawerRow">
+            style="@style/DrawerRow"
+            android:visibility="gone">
 
             <ImageView
                 style="@style/DrawerIcon"
@@ -196,10 +197,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_rectangle_outline_2dp"
+            android:background="@drawable/rounded_rectangle_2dp"
             android:backgroundTint="?android:attr/divider"
             android:foreground="?attr/selectableItemBackground"
-            android:padding="16dp">
+            android:padding="16dp"
+            tools:backgroundTint="@color/separatorLight">
 
             <ImageView
                 android:id="@+id/plusIcon"
@@ -209,7 +211,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:tint="@color/tools_theme" />
+                tools:tint="@color/tools_theme"/>
 
             <com.goodwy.messages.common.widget.QkTextView
                 android:id="@+id/plusTitle"
@@ -223,7 +225,7 @@
                 app:layout_constraintEnd_toStartOf="@id/plusNext"
                 app:layout_constraintStart_toEndOf="@id/plusIcon"
                 app:layout_constraintTop_toTopOf="parent"
-                app:textSize="primary" />
+                app:textSize="primary"/>
 
             <com.goodwy.messages.common.widget.QkTextView
                 android:id="@+id/plusSummary"
@@ -235,7 +237,7 @@
                 app:layout_constraintEnd_toEndOf="@id/plusTitle"
                 app:layout_constraintStart_toStartOf="@id/plusTitle"
                 app:layout_constraintTop_toBottomOf="@id/plusTitle"
-                app:textSize="secondary" />
+                app:textSize="secondary"/>
 
             <ImageView
                 android:id="@+id/plusNext"
@@ -245,7 +247,7 @@
                 android:tint="?android:attr/textColorTertiary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -256,8 +258,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/rounded_rectangle_outline_2dp"
-            android:backgroundTint="?android:attr/divider">
+            android:background="@drawable/rounded_rectangle_2dp"
+            android:backgroundTint="?android:attr/divider"
+            tools:backgroundTint="@color/separatorLight">
 
             <ImageView
                 android:id="@+id/rateIcon"
@@ -268,7 +271,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/rateSummary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rateTitle"
-                tools:tint="@color/tools_theme" />
+                tools:tint="@color/tools_theme"/>
 
             <com.goodwy.messages.common.widget.QkTextView
                 android:id="@+id/rateTitle"

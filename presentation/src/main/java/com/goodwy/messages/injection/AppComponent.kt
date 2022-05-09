@@ -9,10 +9,13 @@ import com.goodwy.messages.feature.blocking.BlockingController
 import com.goodwy.messages.feature.blocking.manager.BlockingManagerController
 import com.goodwy.messages.feature.blocking.messages.BlockedMessagesController
 import com.goodwy.messages.feature.blocking.numbers.BlockedNumbersController
+import com.goodwy.messages.feature.blocking.regexps.BlockedRegexpsController
 import com.goodwy.messages.feature.compose.editing.DetailedChipView
 import com.goodwy.messages.feature.conversationinfo.injection.ConversationInfoComponent
 import com.goodwy.messages.feature.settings.SettingsController
 import com.goodwy.messages.feature.settings.about.AboutController
+import com.goodwy.messages.feature.settings.simconfigure.SimConfigureController
+import com.goodwy.messages.feature.settings.speechbubble.SpeechBubbleController
 import com.goodwy.messages.feature.settings.swipe.SwipeActionsController
 import com.goodwy.messages.feature.themepicker.injection.ThemePickerComponent
 import com.goodwy.messages.feature.widget.WidgetAdapter
@@ -41,9 +44,12 @@ interface AppComponent {
     fun inject(controller: BackupController)
     fun inject(controller: BlockedMessagesController)
     fun inject(controller: BlockedNumbersController)
+    fun inject(controller: BlockedRegexpsController)
     fun inject(controller: BlockingController)
     fun inject(controller: BlockingManagerController)
     fun inject(controller: SettingsController)
+    fun inject(controller: SimConfigureController)
+    fun inject(controller: SpeechBubbleController)
     fun inject(controller: SwipeActionsController)
 
     fun inject(dialog: Dialog)
@@ -57,6 +63,8 @@ interface AppComponent {
 
     fun inject(view: AvatarView)
     fun inject(view: AvatarBigView)
+    fun inject(view: AvatarBiggerView)
+    fun inject(view: BubbleImageView)
     fun inject(view: DetailedChipView)
     fun inject(view: PagerTitleView)
     fun inject(view: PreferenceView)

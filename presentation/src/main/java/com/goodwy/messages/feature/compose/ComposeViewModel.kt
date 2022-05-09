@@ -392,6 +392,16 @@ class ComposeViewModel @Inject constructor(
                 .autoDisposable(view.scope())
                 .subscribe { newState { copy(query = "", searchSelectionId = -1) } }
 
+        // Speech text
+        view.optionsItemIntent
+            .filter { it == R.id.speech }
+            .withLatestFrom(view.messagesSelectedIntent) { _, messages -> messages }
+            .mapNotNull { messages -> messages.firstOrNull().also { view.clearSelection() } }
+            .mapNotNull(messageRepo::getMessage)
+            .mapNotNull(Message::getText)
+            .autoDisposable(view.scope())
+            .subscribe { view.speechText(it) }
+
         // Toggle the group sending mode
         view.sendAsGroupIntent
                 .autoDisposable(view.scope())
@@ -495,7 +505,7 @@ class ComposeViewModel @Inject constructor(
         view.cameraIntent
                 .autoDisposable(view.scope())
                 .subscribe {
-                    if (permissionManager.hasStorage()) {
+                    if (permissionManager.hasStorage() || view.isRPlus()) {
                         newState { copy(attaching = false) }
                         view.requestCamera()
                     } else {

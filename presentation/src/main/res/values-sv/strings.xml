@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Utseende</string>
     <string name="settings_category_general">Generellt</string>
-    <string name="settings_category_qkreply">QK svar</string>
+    <string name="settings_category_qkreply">Snabbt svar</string>
     <string name="settings_theme_title">Tema</string>
     <string name="settings_night_title">Nattläge</string>
     <string name="settings_black_title">Svart nattläge</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Vibration</string>
     <string name="settings_ringtone_title">Ljud</string>
     <string name="settings_ringtone_none">Ingen</string>
-    <string name="settings_qkreply_title">QK-svar</string>
+    <string name="settings_qkreply_title">Snabbt svar</string>
     <string name="settings_qkreply_summary">Popup för nya meddelanden</string>
     <string name="settings_qkreply_tap_dismiss_title">Tryck för att avfärda</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tryck var som helst utanför popupen för att stänga den</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Donera via PayPal</string>
     <string name="messages_plus_coming_soon">Kommer snart</string>
     <string name="messages_plus_themes_title">Högkvalitativa teman</string>
-    <string name="messages_plus_themes_summary">Lås upp vackra färger som inte finns tillgängliga på Material Design paletten</string>
+    <string name="messages_plus_themes_summary">Lås upp alla färger i temat och färgväljaren</string>
     <string name="messages_plus_emoji_title">Anpassad auto-emoji</string>
     <string name="messages_plus_emoji_summary">Skapa anpassade auto-emoji genvägar</string>
     <string name="messages_plus_backup_title">Säkerhetskopiering av meddelande</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Betygsätt 4Messages</string>
     <string name="about_other_app_title">Andra appar</string>
     <string name="settings_gray_avatar_title">Grå kontaktavatarer</string>
+    <string name="settings_sim_color_title">Färgade SIM-kort ikoner</string>
+    <string name="settings_delayed_title_summary">Gör att du kan avbryta eller ändra meddelandet innan du skickar</string>
+    <string name="compose_menu_speech">Taltext</string>
+    <string name="settings_sim_сonfigure_title">Konfigurera SIM-kort</string>
+    <string name="settings_sim_color_summary">Konfigurera färgen på SIM-kortikoner</string>
+    <string name="settings_search_elevation_title">Sök höjd</string>
 </resources>

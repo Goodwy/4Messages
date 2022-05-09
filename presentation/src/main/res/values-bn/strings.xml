@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">উপস্থিতি</string>
     <string name="settings_category_general">সাধারণ</string>
-    <string name="settings_category_qkreply">QK উত্তর</string>
+    <string name="settings_category_qkreply">দ্রুত জবাব</string>
     <string name="settings_theme_title">থিম</string>
     <string name="settings_night_title">নাইট মোড</string>
     <string name="settings_black_title">সম্পূর্ণ কালো রাত্রি মোড</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">কম্পন</string>
     <string name="settings_ringtone_title">শব্দ</string>
     <string name="settings_ringtone_none">কোনোটা না</string>
-    <string name="settings_qkreply_title">QK উত্তর</string>
+    <string name="settings_qkreply_title">দ্রুত জবাব</string>
     <string name="settings_qkreply_summary">নতুন বার্তার জন্য পপ-আপ</string>
     <string name="settings_qkreply_tap_dismiss_title">সরিয়ে দিতে ট্যাপ করুন</string>
     <string name="settings_qkreply_tap_dismiss_summary">এটি বন্ধ করার জন্য পপআপের বাইরে ট্যাপ করুন</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">পেপাল এর মাধ্যমে দান করুন</string>
     <string name="messages_plus_coming_soon">শীঘ্রই আসছে</string>
     <string name="messages_plus_themes_title">প্রিমিয়াম থিম</string>
-    <string name="messages_plus_themes_summary">Material Design প্যালেট পাওয়া যায় না এমন সুন্দর রঙয়ের থীম আনলক করুন</string>
+    <string name="messages_plus_themes_summary">থিম এবং রঙ চয়নকারীর সমস্ত রঙ আনলক করুন</string>
     <string name="messages_plus_emoji_title">কাস্টম সক্রিয়-ইমোজি</string>
     <string name="messages_plus_emoji_summary">কাস্টম সক্রিয়-ইমোজি শর্টকাট তৈরি করুন</string>
     <string name="messages_plus_backup_title">বার্তাগুলোর ব্যাকআপ</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">হার 4Messages</string>
     <string name="settings_gray_avatar_title">ধূসর যোগাযোগের অবতারগুলি</string>
     <string name="about_other_app_title">অন্যান্য অ্যাপ্লিকেশন</string>
+    <string name="settings_sim_color_title">রঙিন সিম-কার্ড আইকন</string>
+    <string name="settings_delayed_title_summary">পাঠানোর আগে আপনাকে বার্তাটি বাতিল বা পরিবর্তন করতে দেয়</string>
+    <string name="compose_menu_speech">বক্তৃতা পাঠ্য</string>
+    <string name="settings_sim_сonfigure_title">সিম কার্ড কনফিগার করুন</string>
+    <string name="settings_sim_color_summary">সিম কার্ডের আইকনগুলির রঙ কনফিগার করুন৷</string>
+    <string name="settings_search_elevation_title">অনুসন্ধান উচ্চতা</string>
 </resources>

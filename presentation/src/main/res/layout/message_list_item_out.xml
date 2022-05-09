@@ -27,7 +27,7 @@
         android:src="@drawable/ic_sim_card_black_24dp"
         android:tint="?android:attr/textColorSecondary"
         app:layout_constraintBottom_toBottomOf="@id/timestamp"
-        app:layout_constraintEnd_toStartOf="@id/simIndex"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/timestamp"
         app:layout_constraintTop_toTopOf="@id/timestamp" />
 
@@ -35,11 +35,11 @@
         android:id="@+id/simIndex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?android:attr/textColorSecondary"
-        app:layout_constraintBottom_toBottomOf="@id/timestamp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/sim"
-        app:layout_constraintTop_toTopOf="@id/timestamp"
+        android:textColor="?android:attr/windowBackground"
+        app:layout_constraintTop_toTopOf="@id/sim"
+        app:layout_constraintBottom_toBottomOf="@id/sim"
+        app:layout_constraintStart_toStartOf="@id/sim"
+        app:layout_constraintEnd_toEndOf="@id/sim"
         app:textSize="tertiary"
         tools:text="1" />
 
@@ -66,7 +66,7 @@
         style="@style/TextPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="12dp"
         android:autoLink="email|phone|web"

@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Uiterlijk</string>
     <string name="settings_category_general">Algemeen</string>
-    <string name="settings_category_qkreply">QK Reply</string>
+    <string name="settings_category_qkreply">Snel antwoord</string>
     <string name="settings_theme_title">Thema</string>
     <string name="settings_night_title">Nachtmodus</string>
     <string name="settings_black_title">Pure zwarte nachtmodus</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Trillen</string>
     <string name="settings_ringtone_title">Geluid</string>
     <string name="settings_ringtone_none">Geen</string>
-    <string name="settings_qkreply_title">QK Reply</string>
+    <string name="settings_qkreply_title">Snel antwoord</string>
     <string name="settings_qkreply_summary">Popup voor nieuwe berichten</string>
     <string name="settings_qkreply_tap_dismiss_title">Tik om te sluiten</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tik buiten de popup om deze te sluiten</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Doneren via PayPal</string>
     <string name="messages_plus_coming_soon">Binnenkort</string>
     <string name="messages_plus_themes_title">Premium thema\'s</string>
-    <string name="messages_plus_themes_summary">Ontgrendel vele mooie kleuren die niet beschikbaar zijn in het Material Design kleurenschema</string>
+    <string name="messages_plus_themes_summary">Ontgrendel alle kleuren van het thema en de kleurkiezer</string>
     <string name="messages_plus_emoji_title">Aangepaste auto-emoji</string>
     <string name="messages_plus_emoji_summary">Maak aangepaste auto-emoji sneltoetsen</string>
     <string name="messages_plus_backup_title">Berichtenback-up</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Beoordeel 4Messages</string>
     <string name="about_other_app_title">Andere apps</string>
     <string name="settings_gray_avatar_title">Grijze contactavatars</string>
+    <string name="settings_sim_color_title">Gekleurde SIM-kaarten iconen</string>
+    <string name="settings_delayed_title_summary">Hiermee kunt u het bericht annuleren of wijzigen voordat u het verzendt</string>
+    <string name="compose_menu_speech">Spraaktekst</string>
+    <string name="settings_sim_сonfigure_title">Sim-kaarten configureren</string>
+    <string name="settings_sim_color_summary">Configureer de kleur van sim-kaartpictogrammen</string>
+    <string name="settings_search_elevation_title">Zoekhoogte</string>
 </resources>

@@ -191,7 +191,7 @@
     </string-array>
     <string name="settings_category_appearance">Izgled</string>
     <string name="settings_category_general">Glavno</string>
-    <string name="settings_category_qkreply">QK Odgovor</string>
+    <string name="settings_category_qkreply">Hiter odgovor</string>
     <string name="settings_theme_title">Teme</string>
     <string name="settings_night_title">Nočni način</string>
     <string name="settings_black_title">Črn nočni način</string>
@@ -212,7 +212,7 @@
     <string name="settings_vibration_title">Vibriranje</string>
     <string name="settings_ringtone_title">Zvok</string>
     <string name="settings_ringtone_none">Brez</string>
-    <string name="settings_qkreply_title">QK Odgovor</string>
+    <string name="settings_qkreply_title">Hiter odgovor</string>
     <string name="settings_qkreply_summary">Pojavno obvestilo za nova sporočila</string>
     <string name="settings_qkreply_tap_dismiss_title">Tapni da opustiš</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tapni izven obvestila, da ga zapreš</string>
@@ -314,7 +314,7 @@
     <string name="messages_plus_donate">Doniraj preko PayPal</string>
     <string name="messages_plus_coming_soon">Prihaja kmalu</string>
     <string name="messages_plus_themes_title">Premium teme</string>
-    <string name="messages_plus_themes_summary">Odkleni čudovite barve tem, ki niso vidne na paleti materialnega dizajna</string>
+    <string name="messages_plus_themes_summary">Odklenite vse barve teme in izbirnik barv</string>
     <string name="messages_plus_emoji_title">Auto-čustvenček po meri</string>
     <string name="messages_plus_emoji_summary">Ustvari avto-čustvenček bližnjico po meri</string>
     <string name="messages_plus_backup_title">Varnostna kopija sporočila</string>
@@ -429,4 +429,10 @@
     <string name="about_rate_title">Ocenite 4Messages</string>
     <string name="settings_gray_avatar_title">Sivi kontaktni avatarji</string>
     <string name="about_other_app_title">Druge aplikacije</string>
+    <string name="settings_sim_color_title">Ikone barvnih kartic SIM</string>
+    <string name="settings_delayed_title_summary">Omogoča preklic ali spreminjanje sporočila pred pošiljanjem</string>
+    <string name="compose_menu_speech">Govorno besedilo</string>
+    <string name="settings_sim_сonfigure_title">Konfiguriranje kartic SIM</string>
+    <string name="settings_sim_color_summary">Konfiguriranje barve ikon kartic SIM</string>
+    <string name="settings_search_elevation_title">Poiščite povišanje</string>
 </resources>

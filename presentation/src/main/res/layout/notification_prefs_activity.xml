@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 app:summary="@string/settings_notifications_o_summary"
                 app:title="@string/settings_notifications_title"
-                app:widget="@layout/settings_chevron_one_widget"
+                app:widget="@layout/settings_chevron_widget"
                 tools:visibility="gone" />
 
             <com.goodwy.messages.common.widget.PreferenceView

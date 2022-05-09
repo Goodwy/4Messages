@@ -90,11 +90,11 @@ class PlusActivity : QkThemedActivity(), PlusView {
         toUpgrade.setVisible(!fdroid && !state.upgraded)
         upgraded.setVisible(!fdroid && state.upgraded)
 
-        themes.isEnabled = state.upgraded
+        /*themes.isEnabled = state.upgraded
         schedule.isEnabled = state.upgraded
         backup.isEnabled = state.upgraded
         delayed.isEnabled = state.upgraded
-        night.isEnabled = state.upgraded
+        night.isEnabled = state.upgraded*/
     }
 
     override fun initiatePurchaseFlow(billingManager: BillingManager, sku: String) {

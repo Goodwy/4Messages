@@ -3,6 +3,7 @@ package com.goodwy.messages.feature.settings
 import android.animation.ObjectAnimator
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.res.ColorStateList
 import android.os.Build
 import android.text.format.DateFormat
 import android.view.View
@@ -20,13 +21,15 @@ import com.goodwy.messages.common.Dialog
 import com.goodwy.messages.common.base.QkController
 import com.goodwy.messages.common.util.Colors
 import com.goodwy.messages.common.util.extensions.animateLayoutChanges
+import com.goodwy.messages.common.util.extensions.resolveThemeColor
 import com.goodwy.messages.common.util.extensions.setBackgroundTint
 import com.goodwy.messages.common.util.extensions.setVisible
 import com.goodwy.messages.common.widget.PreferenceView
-import com.goodwy.messages.common.widget.QkSwitch
 import com.goodwy.messages.common.widget.TextInputDialog
 import com.goodwy.messages.feature.settings.about.AboutController
 import com.goodwy.messages.feature.settings.autodelete.AutoDeleteDialog
+import com.goodwy.messages.feature.settings.simconfigure.SimConfigureController
+import com.goodwy.messages.feature.settings.speechbubble.SpeechBubbleController
 import com.goodwy.messages.feature.settings.swipe.SwipeActionsController
 import com.goodwy.messages.feature.themepicker.ThemePickerController
 import com.goodwy.messages.injection.appComponent
@@ -44,9 +47,7 @@ import kotlinx.android.synthetic.main.settings_controller.*
 import kotlinx.android.synthetic.main.settings_controller.view.*
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
 import kotlinx.android.synthetic.main.settings_theme_widget.*
-import kotlinx.android.synthetic.main.settings_chevron_one_widget.*
-import kotlinx.android.synthetic.main.settings_chevron_two_widget.*
-import kotlinx.android.synthetic.main.settings_chevron_three_widget.*
+import kotlinx.android.synthetic.main.settings_chevron_widget.view.*
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
@@ -58,6 +59,7 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
     @Inject lateinit var textSizeDialog: Dialog
     @Inject lateinit var sendDelayDialog: Dialog
     @Inject lateinit var mmsSizeDialog: Dialog
+    @Inject lateinit var searchElevationDialog: Dialog
 
     @Inject override lateinit var presenter: SettingsPresenter
 
@@ -98,6 +100,7 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
         textSizeDialog.adapter.setData(R.array.text_sizes)
         sendDelayDialog.adapter.setData(R.array.delayed_sending_labels)
         mmsSizeDialog.adapter.setData(R.array.mms_sizes, R.array.mms_sizes_ids)
+        searchElevationDialog.adapter.setData(R.array.search_elevation, R.array.search_elevation_ids)
 
         about.summary = context.getString(R.string.settings_version, BuildConfig.VERSION_NAME)
     }
@@ -107,6 +110,19 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
         presenter.bindIntents(this)
         setTitle(R.string.title_settings)
         showBackButton(true)
+
+        val states = arrayOf(
+            intArrayOf(android.R.attr.state_activated),
+            intArrayOf(-android.R.attr.state_activated))
+
+        val textTertiary = view.context.resolveThemeColor(android.R.attr.textColorTertiary)
+        val imageTintList = ColorStateList(states, intArrayOf(colors.theme().theme, textTertiary))
+
+        speechBubble.chevron.imageTintList = imageTintList
+        simConfigure.chevron.imageTintList = imageTintList
+        notifications.chevron.imageTintList = imageTintList
+        swipeActions.chevron.imageTintList = imageTintList
+        about.chevron.imageTintList = imageTintList
     }
 
     override fun preferenceClicks(): Observable<PreferenceView> = (0 until preferences.childCount)
@@ -135,11 +151,17 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
 
     override fun mmsSizeSelected(): Observable<Int> = mmsSizeDialog.adapter.menuItemClicks
 
+    override fun searchElevationSelected(): Observable<Int> = searchElevationDialog.adapter.menuItemClicks
+
     override fun render(state: SettingsState) {
         themePreview.setBackgroundTint(state.theme)
-        chevronOne.setBackgroundTint(colors.theme().textSecondary)
-        chevronTwo.setBackgroundTint(colors.theme().textSecondary)
-        chevronThree.setBackgroundTint(colors.theme().textSecondary)
+
+        speechBubble.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+        simConfigure.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+        notifications.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+        swipeActions.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+        about.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+
         night.value = state.nightModeSummary
         nightModeDialog.adapter.selectedItem = state.nightModeId
         nightStart.setVisible(state.nightModeId == Preferences.NIGHT_MODE_AUTO)
@@ -171,6 +193,8 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
 
         grayAvatar.checkbox.isChecked = state.grayAvatar
 
+        //simColor.checkbox.isChecked = state.simColor
+
         separator.checkbox.isChecked = state.separator
 
         systemFont.checkbox.isChecked = state.systemFontEnabled
@@ -188,6 +212,9 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
 
         mmsSize.value = state.maxMmsSizeSummary
         mmsSizeDialog.adapter.selectedItem = state.maxMmsSizeId
+
+        searchElevation.value = state.maxSearchElevationSummary
+        searchElevationDialog.adapter.selectedItem = state.maxSearchElevationId
 
         when (state.syncProgress) {
             is SyncRepository.SyncProgress.Idle -> syncingProgress.isVisible = false
@@ -247,6 +274,20 @@ class SettingsController : QkController<SettingsView, SettingsState, SettingsPre
     }
 
     override fun showMmsSizePicker() = mmsSizeDialog.show(activity!!)
+
+    override fun showSearchElevationPicker() = searchElevationDialog.show(activity!!)
+
+    override fun showSpeechBubble() {
+        router.pushController(RouterTransaction.with(SpeechBubbleController())
+            .pushChangeHandler(ChangeHandler())
+            .popChangeHandler(ChangeHandler()))
+    }
+
+    override fun showSimConfigure() {
+        router.pushController(RouterTransaction.with(SimConfigureController())
+            .pushChangeHandler(ChangeHandler())
+            .popChangeHandler(ChangeHandler()))
+    }
 
     override fun showSwipeActions() {
         router.pushController(RouterTransaction.with(SwipeActionsController())

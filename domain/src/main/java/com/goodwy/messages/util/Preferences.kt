@@ -57,6 +57,16 @@ class Preferences @Inject constructor(
         const val BLOCKING_MANAGER_QKSMS = 0
         const val BLOCKING_MANAGER_CC = 1
         const val BLOCKING_MANAGER_SIA = 2
+        const val BLOCKING_MANAGER_CB = 3
+
+        const val SIM_COLOR_BLUE = 0
+        const val SIM_COLOR_GREEN = 1
+        const val SIM_COLOR_YELLOW = 2
+        const val SIM_COLOR_RED = 3
+        const val SIM_COLOR_PURPLE = 4
+
+        const val BUBBLE_STYLE_ORIGINAL = 0
+        const val BUBBLE_STYLE_IOS = 1
     }
 
     // Internal
@@ -80,6 +90,12 @@ class Preferences @Inject constructor(
     val gray = rxPrefs.getBoolean("gray", false)
     val autoColor = rxPrefs.getBoolean("autoColor", true)
     val grayAvatar = rxPrefs.getBoolean("grayAvatar", true)
+    val bubbleColorInvert = rxPrefs.getBoolean("bubbleColorInvert", false)
+    val bubbleStyle = rxPrefs.getInteger("bubbleStyle", BUBBLE_STYLE_ORIGINAL)
+    val simColor = rxPrefs.getBoolean("simColor", false)
+    val sim1Color = rxPrefs.getInteger("sim1Color", SIM_COLOR_BLUE)
+    val sim2Color = rxPrefs.getInteger("sim2Color", SIM_COLOR_GREEN)
+    val sim3Color = rxPrefs.getInteger("sim3Color", SIM_COLOR_YELLOW)
     val separator = rxPrefs.getBoolean("separator", true)
     val systemFont = rxPrefs.getBoolean("systemFont", false)
     val textSize = rxPrefs.getInteger("textSize", TEXT_SIZE_NORMAL)
@@ -102,6 +118,7 @@ class Preferences @Inject constructor(
     val longAsMms = rxPrefs.getBoolean("longAsMms", false)
     val mmsSize = rxPrefs.getInteger("mmsSize", 300)
     val logging = rxPrefs.getBoolean("logging", false)
+    val searchElevation = rxPrefs.getInteger("searchElevation", 16)
 
     init {
         // Migrate from old night mode preference to new one, now that we support android Q night mode

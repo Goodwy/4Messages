@@ -299,7 +299,7 @@
     <string name="messages_plus_donate">Donasi via PayPal</string>
     <string name="messages_plus_coming_soon">Segera hadir</string>
     <string name="messages_plus_themes_title">Tema premium</string>
-    <string name="messages_plus_themes_summary">Unlock beautiful theme colors not available on the Material Design palette</string>
+    <string name="messages_plus_themes_summary">Buka kunci semua warna tema dan pemilih warna</string>
     <string name="messages_plus_emoji_title">Emoji otomatis khusus</string>
     <string name="messages_plus_emoji_summary">Buat pintasan emoji otomatis khusus</string>
     <string name="messages_plus_backup_title">Cadangan pesan</string>
@@ -411,4 +411,10 @@
     <string name="about_rate_title">Nilai 4Messages</string>
     <string name="about_other_app_title">Aplikasi lain</string>
     <string name="settings_gray_avatar_title">Avatar kontak abu-abu</string>
+    <string name="settings_sim_color_title">Ikon kartu SIM berwarna</string>
+    <string name="settings_delayed_title_summary">Memungkinkan Anda untuk membatalkan atau mengubah pesan sebelum mengirim</string>
+    <string name="compose_menu_speech">Teks pidato</string>
+    <string name="settings_sim_сonfigure_title">Konfigurasikan kartu SIM</string>
+    <string name="settings_sim_color_summary">Konfigurasikan warna ikon kartu SIM</string>
+    <string name="settings_search_elevation_title">Cari ketinggian</string>
 </resources>

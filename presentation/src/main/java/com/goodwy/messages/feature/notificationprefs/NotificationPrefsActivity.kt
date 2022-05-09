@@ -20,6 +20,7 @@ package com.goodwy.messages.feature.notificationprefs
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
@@ -32,7 +33,7 @@ import com.goodwy.messages.R
 import com.goodwy.messages.common.Dialog
 import com.goodwy.messages.common.base.QkThemedActivity
 import com.goodwy.messages.common.util.extensions.animateLayoutChanges
-import com.goodwy.messages.common.util.extensions.setBackgroundTint
+import com.goodwy.messages.common.util.extensions.resolveThemeColor
 import com.goodwy.messages.common.util.extensions.setVisible
 import com.goodwy.messages.common.widget.PreferenceView
 import com.uber.autodispose.android.lifecycle.scope
@@ -42,8 +43,10 @@ import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
 import kotlinx.android.synthetic.main.notification_prefs_activity.*
+import kotlinx.android.synthetic.main.notification_prefs_activity.notifications
+import kotlinx.android.synthetic.main.notification_prefs_activity.preferences
 import kotlinx.android.synthetic.main.settings_switch_widget.view.*
-import kotlinx.android.synthetic.main.settings_chevron_one_widget.*
+import kotlinx.android.synthetic.main.settings_chevron_widget.view.*
 import javax.inject.Inject
 
 class NotificationPrefsActivity : QkThemedActivity(), NotificationPrefsView {
@@ -97,8 +100,16 @@ class NotificationPrefsActivity : QkThemedActivity(), NotificationPrefsView {
             title = state.conversationTitle
         }
 
+        val states = arrayOf(
+            intArrayOf(android.R.attr.state_activated),
+            intArrayOf(-android.R.attr.state_activated))
+        val textTertiary = resolveThemeColor(android.R.attr.textColorTertiary)
+        val imageTintList = ColorStateList(states, intArrayOf(colors.theme().theme, textTertiary))
+
+        notificationsO.chevron.imageTintList = imageTintList
+        notificationsO.chevron.setImageResource(R.drawable.ic_chevron_right_black_24dp)
+
         notifications.checkbox.isChecked = state.notificationsEnabled
-        chevronOne.setBackgroundTint(colors.theme().textSecondary)
         previews.value = state.previewSummary
         previewModeDialog.adapter.selectedItem = state.previewId
         wake.checkbox.isChecked = state.wakeEnabled

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="shortcut_compose_long_label">Новая беседа</string>
     <string name="shortcut_compose_short_label">Написать</string>
     <string name="shortcut_compose_disabled_message">Ярлык отключён</string>
@@ -59,7 +59,7 @@
     <string name="rate_dismiss">ОТКЛОНИТЬ</string>
     <string name="dialog_delete_title">Удалить</string>
     <plurals name="dialog_delete_message">
-        <item quantity="one">Уверены, что хотите удалить эту беседу?</item>
+        <item quantity="one" tools:ignore="ImpliedQuantity">Уверены, что хотите удалить эту беседу?</item>
         <item quantity="few">Уверены, что хотите удалить %d беседы?</item>
         <item quantity="many">Уверены, что хотите удалить %d бесед?</item>
         <item quantity="other">Уверены, что хотите удалить %d бесед?</item>
@@ -173,7 +173,7 @@
     </string-array>
     <string name="settings_category_appearance">Внешний вид</string>
     <string name="settings_category_general">Общее</string>
-    <string name="settings_category_qkreply">QK-ответ</string>
+    <string name="settings_category_qkreply">Быстрый ответ</string>
     <string name="settings_theme_title">Тема</string>
     <string name="settings_night_title">Ночной режим</string>
     <string name="settings_black_title">Полностью чёрный ночной режим</string>
@@ -194,7 +194,7 @@
     <string name="settings_vibration_title">Вибросигнал</string>
     <string name="settings_ringtone_title">Звук</string>
     <string name="settings_ringtone_none">Нет</string>
-    <string name="settings_qkreply_title">QK-ответ</string>
+    <string name="settings_qkreply_title">Быстрый ответ</string>
     <string name="settings_qkreply_summary">Всплывающее окно для новых сообщений</string>
     <string name="settings_qkreply_tap_dismiss_title">Нажмите, чтобы отклонить</string>
     <string name="settings_qkreply_tap_dismiss_summary">Нажмите за пределами всплывающего окна, чтобы закрыть его</string>
@@ -296,7 +296,7 @@
     <string name="messages_plus_donate">Пожертвовать через PayPal</string>
     <string name="messages_plus_coming_soon">Скоро</string>
     <string name="messages_plus_themes_title">Премиальные темы</string>
-    <string name="messages_plus_themes_summary">Разблокируйте красивые цвета темы, недоступные в палитре Material Design</string>
+    <string name="messages_plus_themes_summary">Разблокируйте все цвета темы и палитру цветов</string>
     <string name="messages_plus_emoji_title">Пользовательские авто-emoji</string>
     <string name="messages_plus_emoji_summary">Создайте ярлык пользовательских авто-emoji</string>
     <string name="messages_plus_backup_title">Резервирование сообщений</string>
@@ -348,7 +348,7 @@
     <string name="toast_archived">Архивированная беседа</string>
     <string name="toast_messages_plus">Вы должны разблокировать 4Messages+, чтобы использовать</string>
     <plurals name="notification_new_messages">
-        <item quantity="one">Новое сообщение</item>
+        <item quantity="one" tools:ignore="ImpliedQuantity">Новое сообщение</item>
         <item quantity="few">%s новых сообщения</item>
         <item quantity="many">%s новых сообщений</item>
         <item quantity="other">%s новых сообщений</item>
@@ -411,4 +411,11 @@
     <string name="about_rate_title">Оцените 4Messages</string>
     <string name="about_other_app_title">Другие приложения</string>
     <string name="settings_gray_avatar_title">Серые иконки контактов</string>
+    <string name="settings_sim_color_title">Цветные иконки SIM-карт</string>
+    <string name="settings_delayed_title_summary" translatable="false">Позволяет отменить или изменить сообщение перед отправкой</string>
+    <string name="compose_menu_speech">Озвучить текст</string>
+    <string name="settings_sim_сonfigure_title">Настройка SIM-карт</string>
+    <string name="settings_sim_color_summary">Настройка цвета значков SIM-карт</string>
+    <string name="settings_search_elevation_title">Тень строки поиска</string>
+    <string name="settings_search_elevation_summary">Изменяет размер тени строки поиска</string>
 </resources>

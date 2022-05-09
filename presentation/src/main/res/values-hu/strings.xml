@@ -187,7 +187,7 @@
     </string-array>
     <string name="settings_category_appearance">Megjelenés</string>
     <string name="settings_category_general">Általános</string>
-    <string name="settings_category_qkreply">QK válasz</string>
+    <string name="settings_category_qkreply">Gyors válasz</string>
     <string name="settings_theme_title">Téma</string>
     <string name="settings_night_title">Éjszakai mód</string>
     <string name="settings_black_title">Éjfekete mód</string>
@@ -208,7 +208,7 @@
     <string name="settings_vibration_title">Rezgés</string>
     <string name="settings_ringtone_title">Hang</string>
     <string name="settings_ringtone_none">Nincs</string>
-    <string name="settings_qkreply_title">QK válasz</string>
+    <string name="settings_qkreply_title">Gyors válasz</string>
     <string name="settings_qkreply_summary">Felugró új üzenetek</string>
     <string name="settings_qkreply_tap_dismiss_title">Érintsd meg az eltüntetéshez</string>
     <string name="settings_qkreply_tap_dismiss_summary">Érintsd meg a felugró ablakon kívül a lezáráshoz</string>
@@ -304,7 +304,7 @@
     <string name="messages_plus_donate">Támogatás PayPalon keresztül</string>
     <string name="messages_plus_coming_soon">Hamarosan</string>
     <string name="messages_plus_themes_title">Prémium témák</string>
-    <string name="messages_plus_themes_summary">Használj olyan csodaszép témákat amik nem érhetőek el a Material Design palettáján</string>
+    <string name="messages_plus_themes_summary">Oldja fel a téma és a színválasztó összes színét</string>
     <string name="messages_plus_emoji_title">Személyre szabott auto-emoji</string>
     <string name="messages_plus_emoji_summary">Készíts személyre szabott emoji rövidítéseket</string>
     <string name="messages_plus_backup_title">Üzenet biztonsági mentés</string>
@@ -417,4 +417,10 @@
     <string name="about_rate_title">Rate 4Messages</string>
     <string name="about_other_app_title">Egyéb alkalmazások</string>
     <string name="settings_gray_avatar_title">Szürke kontakt avatarok</string>
+    <string name="settings_sim_color_title">Színes SIM-kártyák ikonok</string>
+    <string name="settings_delayed_title_summary">Lehetővé teszi az üzenet megszakítását vagy módosítását a küldés előtt</string>
+    <string name="compose_menu_speech">Beszédszöveg</string>
+    <string name="settings_sim_сonfigure_title">SIM-kártyák konfigurálása</string>
+    <string name="settings_sim_color_summary">A SIM-kártyák ikonjainak színének beállítása</string>
+    <string name="settings_search_elevation_title">Keresés magasságában</string>
 </resources>

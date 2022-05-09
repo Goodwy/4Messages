@@ -66,6 +66,13 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/speech"
+        android:icon="@drawable/ic_speech_black_24dp"
+        android:title="@string/compose_menu_speech"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/clear"
         android:icon="@drawable/ic_clear_black_24dp"
         android:title="@string/compose_menu_clear"

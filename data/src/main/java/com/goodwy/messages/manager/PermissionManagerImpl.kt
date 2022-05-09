@@ -23,6 +23,7 @@ import android.app.role.RoleManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.Environment
 import android.provider.Telephony
 import androidx.core.content.ContextCompat
 import javax.inject.Inject
@@ -59,6 +60,11 @@ class PermissionManagerImpl @Inject constructor(private val context: Context) : 
 
     override fun hasStorage(): Boolean {
         return hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        /*return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            Environment.isExternalStorageManager()
+        } else {
+            hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        }*/
     }
 
     private fun hasPermission(permission: String): Boolean {

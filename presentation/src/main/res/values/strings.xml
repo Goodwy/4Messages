@@ -191,7 +191,7 @@
 
     <string name="settings_category_appearance">Appearance</string>
     <string name="settings_category_general">General</string>
-    <string name="settings_category_qkreply">QK Reply</string>
+    <string name="settings_category_qkreply">Quick Reply</string>
 
     <string name="settings_theme_title">Theme</string>
     <string name="settings_night_title">Night mode</string>
@@ -213,7 +213,7 @@
     <string name="settings_vibration_title">Vibration</string>
     <string name="settings_ringtone_title">Sound</string>
     <string name="settings_ringtone_none">None</string>
-    <string name="settings_qkreply_title">QK Reply</string>
+    <string name="settings_qkreply_title">Quick Reply</string>
     <string name="settings_qkreply_summary">Popup for new messages</string>
     <string name="settings_qkreply_tap_dismiss_title">Tap to dismiss</string>
     <string name="settings_qkreply_tap_dismiss_summary">Tap outside of the popup to close it</string>
@@ -271,6 +271,8 @@
     <string name="blocking_manager_title">Blocking Manager</string>
     <string name="blocking_manager_messages_title">4Messages</string>
     <string name="blocking_manager_messages_summary">Built-in blocking functionality in 4Messages</string>
+    <string name="blocking_manager_call_blocker_title" translatable="false">Call Blocker - Incoming/Outgoing</string>
+    <string name="blocking_manager_call_blocker_summary">Block spam messages, numbers &amp; unknown calls with blacklist &amp; Schedule</string>
     <string name="blocking_manager_call_control_title" translatable="false">Call Control</string>
     <string name="blocking_manager_call_control_summary">Automatically filter your calls and messages in one convenient place! Community IQ™ allows you to prevent unwanted messages from community known spammers</string>
     <string name="blocking_manager_sia_title" translatable="false">Should I Answer?</string>
@@ -324,7 +326,7 @@
     <string name="messages_plus_donate">Donate via PayPal</string>
     <string name="messages_plus_coming_soon">Coming soon</string>
     <string name="messages_plus_themes_title">Premium themes</string>
-    <string name="messages_plus_themes_summary">Unlock beautiful theme colors not available on the Material Design palette</string>
+    <string name="messages_plus_themes_summary">Unlock all the colors of the theme and color picker</string>
     <string name="messages_plus_emoji_title">Custom auto-emoji</string>
     <string name="messages_plus_emoji_summary">Create custom auto-emoji shortcuts</string>
     <string name="messages_plus_backup_title">Message backup</string>
@@ -364,7 +366,7 @@
     <string name="about_changelog" translatable="false">https://github.com/goodwy/4messages/releases</string>
     <string name="about_contact" translatable="false">goodwy.dev@gmail.com</string>
     <string name="about_license" translatable="false">GNU General Public License v3.0</string>
-    <string name="about_copyright" translatable="false">© 2021</string>
+    <string name="about_copyright" translatable="false">© 2022</string>
 
     <string name="changelog_title" translatable="false">New in 4Messages</string>
     <string name="changelog_version" translatable="false">Version %s</string>
@@ -475,12 +477,73 @@
     <string name="theme_ios" translatable="false">iOS</string>
     <string name="theme_color_picker">Color Picker</string>
     <string name="settings_separator_title">Use separator</string>
-    <string name="settings_signature_empty_value" translatable="false">-</string>
+    <string name="settings_signature_empty_value" translatable="false">—</string>
     <string name="about_message">4Messages is an open source SMS manager. Is based on the open source QKSMS application.</string>
     <string name="about_message_rate">I would be very grateful if you leave a review or rating about the application.</string>
     <string name="about_rate_title">Rate 4Messages</string>
     <string name="about_other_app_title">Other Apps</string>
     <string name="settings_gray_avatar_title">Gray contact avatars</string>
     <string name="title_badge_plus" translatable="false">4M+</string>
+    <string name="settings_sim_сonfigure_title">Configure SIM cards</string>
+    <string name="settings_sim_color_title">SIM cards colored icons</string>
+    <string name="settings_sim_color_summary">Configure the color of SIM cards icons</string>
+    <string name="early_access" translatable="false">Early access!</string>
+
+    <string name="settings_delayed_title_summary">Allows you to cancel or change the message before sending</string>
+    <string name="settings_gray_avatar_summary" translatable="false">iOS style avatar</string>
+
+    <string name="blocked_regexps_title" translatable="false">Regex block rules</string>
+    <string name="blocked_regexps_empty" translatable="false">Your regexps rule will appear here</string>
+    <string name="blocked_regexps_add_cd" translatable="false">add a new regex rule</string>
+    <string name="blocked_regexps_dialog_title" translatable="false">New regex rule</string>
+    <string name="blocked_regexps_dialog_hint" translatable="false">Regex rule</string>
+    <string name="blocked_regexps_dialog_block" translatable="false">Block</string>
+    <string name="blocked_regexps_banner_title" translatable="false">Wikipedia</string>
+    <string name="blocked_regexps_banner_summary" translatable="false">What are regexps?</string>
+
+    <string name="compose_menu_speech">Speech text</string>
+
+    <string name="settings_search_elevation_title">Search elevation</string>
+    <string name="settings_search_elevation_summary">Resizes the search box shadow</string>
+
+    <string name="settings_speech_bubble_title">Bubble style</string>
+    <string name="settings_speech_bubble_invert_title">Invert the color of the speech bubble</string>
+    <string name="settings_speech_bubble_style_title">Speech bubble style</string>
+
+    <string-array name="search_elevation">
+        <item>No</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Large</item>
+    </string-array>
+
+    <integer-array name="search_elevation_ids">
+        <item>0</item>
+        <item>16</item>
+        <item>32</item>
+        <item>48</item>
+    </integer-array>
+
+    <string-array name="settings_sim_colors">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Purple</item>
+    </string-array>
+
+    <string-array name="settings_bubble_style">
+        <item>Original</item>
+        <item>iOS</item>
+        <item>Simple</item>
+        <item>Triangle</item>
+    </string-array>
+
+    <integer-array name="settings_bubble_style_ids">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
 
 </resources>

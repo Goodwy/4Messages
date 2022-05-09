@@ -314,7 +314,7 @@
     <string name="messages_plus_donate">תרומה באמצעות PayPal</string>
     <string name="messages_plus_coming_soon">בקרוב</string>
     <string name="messages_plus_themes_title">ערכות עיצוב פרימיום</string>
-    <string name="messages_plus_themes_summary">חשיפת צבעי ערכות עיצוב שאינן זמינות בערת הצבעים של עיצובי Material</string>
+    <string name="messages_plus_themes_summary">בטל את נעילת כל צבעי הנושא ובורר הצבעים</string>
     <string name="messages_plus_emoji_title">אימוג׳י אוטומטי בהתאמה אישית</string>
     <string name="messages_plus_emoji_summary">יצירת קיצורי דרך מותאמים אישית לאימוג׳י</string>
     <string name="messages_plus_backup_title">גיבוי הודעות</string>
@@ -429,4 +429,10 @@
     <string name="about_rate_title">דרג 4 הודעות</string>
     <string name="about_other_app_title">אפליקציות אחרות</string>
     <string name="settings_gray_avatar_title">אווטרים ליצירת קשר אפורים</string>
+    <string name="settings_sim_color_title">סמלי כרטיסי SIM צבעוניים</string>
+    <string name="settings_delayed_title_summary">מאפשר לך לבטל או לשנות את ההודעה לפני השליחה</string>
+    <string name="compose_menu_speech">טקסט דיבור</string>
+    <string name="settings_sim_сonfigure_title">קביעת תצורה של כרטיסי SIM</string>
+    <string name="settings_sim_color_summary">קביעת התצורה של הצבע של סמלי כרטיסי SIM</string>
+    <string name="settings_search_elevation_title">העלאת חיפוש</string>
 </resources>

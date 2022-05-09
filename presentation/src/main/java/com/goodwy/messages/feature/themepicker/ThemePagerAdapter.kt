@@ -5,9 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.goodwy.messages.R
+import com.goodwy.messages.manager.BillingManager
 import javax.inject.Inject
 
-class ThemePagerAdapter @Inject constructor(private val context: Context) : PagerAdapter() {
+class ThemePagerAdapter @Inject constructor(
+    private val context: Context,
+    private val billingManager: BillingManager
+) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         return when (position) {
@@ -22,8 +26,10 @@ class ThemePagerAdapter @Inject constructor(private val context: Context) : Page
         return when (position) {
             0 -> context.getString(R.string.app_name)
             1 -> context.getString(R.string.theme_material)
-            2 -> context.getString(R.string.theme_ios)
-            else -> context.getString(R.string.theme_color_picker) //theme_plus
+            2 -> if (billingManager.upgradeStatus.blockingFirst()) context.getString(R.string.theme_ios)
+                    else context.getString(R.string.theme_ios) + "+"
+            else -> if (billingManager.upgradeStatus.blockingFirst()) context.getString(R.string.theme_color_picker)
+                    else context.getString(R.string.theme_color_picker) + "+" //theme_plus
         }
     }
 

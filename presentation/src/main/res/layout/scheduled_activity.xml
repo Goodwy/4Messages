@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (C) 2019 Moez Bhatti <moez.bhatti@gmail.com>
-  ~
-  ~ This file is part of QKSMS.
-  ~
-  ~ QKSMS is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ QKSMS is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with QKSMS.  If not, see <http://www.gnu.org/licenses/>.
-  -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -34,6 +16,168 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:id="@+id/empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.goodwy.messages.common.widget.QkTextView
+                    style="@style/TextPrimary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="@string/scheduled_empty_description"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="56dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:padding="12dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/rounded_rectangle_outline_2dp"
+                    android:backgroundTint="?android:attr/divider">
+
+                    <ImageView
+                        android:id="@+id/contactButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:contentDescription="@string/compose_contact_cd"
+                        android:elevation="4dp"
+                        android:padding="10dp"
+                        android:alpha="0.3"
+                        android:src="@drawable/ic_person_black_24dp"
+                        android:tint="?android:attr/textColorSecondary"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@id/scheduleButton"
+                        app:layout_constraintEnd_toEndOf="@id/attachButton"
+                        app:layout_constraintStart_toStartOf="@id/attachButton" />
+
+                    <ImageView
+                        android:id="@+id/scheduleButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:contentDescription="@string/compose_schedule_cd"
+                        android:elevation="4dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_event_black_24dp"
+                        android:tint="?android:attr/textColorSecondary"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@id/galleryButton"
+                        app:layout_constraintEnd_toEndOf="@id/attachButton"
+                        app:layout_constraintStart_toStartOf="@id/attachButton" />
+
+                    <com.goodwy.messages.common.widget.QkTextView
+                        android:id="@+id/scheduleLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/rounded_rectangle_4dp"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="@string/compose_schedule_cd"
+                        android:textColor="?android:attr/textColorPrimary"
+                        app:layout_constraintBottom_toBottomOf="@id/scheduleButton"
+                        app:layout_constraintStart_toEndOf="@id/scheduleButton"
+                        app:layout_constraintTop_toTopOf="@id/scheduleButton" />
+
+                    <ImageView
+                        android:id="@+id/galleryButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:contentDescription="@string/compose_gallery_cd"
+                        android:elevation="4dp"
+                        android:padding="10dp"
+                        android:alpha="0.3"
+                        android:src="@drawable/ic_insert_photo_black_24dp"
+                        android:tint="?android:attr/textColorSecondary"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@id/cameraButton"
+                        app:layout_constraintEnd_toEndOf="@id/attachButton"
+                        app:layout_constraintStart_toStartOf="@id/attachButton" />
+
+                    <ImageView
+                        android:id="@+id/cameraButton"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/circle"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:contentDescription="@string/compose_camera_cd"
+                        android:elevation="4dp"
+                        android:padding="10dp"
+                        android:alpha="0.3"
+                        android:src="@drawable/ic_camera_alt_black_24dp"
+                        android:tint="?android:attr/textColorSecondary"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@id/attachButton"
+                        app:layout_constraintEnd_toEndOf="@id/attachButton"
+                        app:layout_constraintStart_toStartOf="@id/attachButton" />
+
+                    <ImageView
+                        android:id="@+id/attachButton"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/circle"
+                        android:contentDescription="@string/compose_attach_cd"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_attachment_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:backgroundTint="@color/tools_theme"
+                        tools:tint="@color/textPrimaryDark" />
+
+                    <com.goodwy.messages.common.widget.TightTextView
+                        android:id="@+id/textMessage"
+                        style="@style/ScheduledSampleTextStyle"
+                        android:layout_width="0dp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/rounded_rectangle_22dp"
+                        android:backgroundTint="?attr/bubbleColor"
+                        android:text="@string/scheduled_empty_message_3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/attachButton"
+                        app:layout_constraintEnd_toStartOf="@+id/sendButton" />
+
+                    <ImageView
+                        android:id="@+id/sendButton"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/circle"
+                        android:contentDescription="@string/compose_send_cd"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_send_black_24dp"
+                        tools:backgroundTint="@color/tools_theme"
+                        tools:tint="@color/textPrimaryDark"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textMessage"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+<!--
             <LinearLayout
                 android:id="@+id/empty"
                 android:layout_width="match_parent"
@@ -91,7 +235,7 @@
                     android:layout_height="56dp" />
 
             </LinearLayout>
-
+-->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/messages"
                 android:layout_width="match_parent"

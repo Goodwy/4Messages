@@ -47,14 +47,12 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import io.reactivex.subjects.Subject
-import kotlinx.android.synthetic.main.compose_activity.*
 import kotlinx.android.synthetic.main.drawer_view.*
 import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.main_activity.toolbar
 import kotlinx.android.synthetic.main.main_activity.toolbarTitle
 import kotlinx.android.synthetic.main.main_permission_hint.*
 import kotlinx.android.synthetic.main.main_syncing.*
-import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 class MainActivity : QkThemedActivity(), MainView {
@@ -227,7 +225,7 @@ class MainActivity : QkThemedActivity(), MainView {
         toolbar.menu.findItem(R.id.block)?.isVisible = selectedConversations != 0
 
         listOf(plusBadge1, plusBadge2).forEach { badge ->
-            badge.isVisible = drawerBadgesExperiment.variant && !state.upgraded
+            badge.isVisible = /*drawerBadgesExperiment.variant && */!state.upgraded
         }
         plus.isVisible = state.upgraded
         plusBanner.isVisible = !state.upgraded
@@ -251,6 +249,7 @@ class MainActivity : QkThemedActivity(), MainView {
                     toolbar.setNavigationIcon(R.drawable.ic_menu_24dp)
                     toolbar.navigationIcon?.setTint(resolveThemeColor(android.R.attr.textColorSecondary))
                     toolbar.setBackgroundResource(R.drawable.rounded_rectangle_24dp)
+                    toolbar.elevation = prefs.searchElevation.get().toFloat()
                     compose.animate().rotation(0f).start()}
                 title = getString(R.string.main_title_selected, state.page.selected)
                 if (recyclerView.adapter !== conversationsAdapter) recyclerView.adapter = conversationsAdapter
@@ -399,7 +398,7 @@ class MainActivity : QkThemedActivity(), MainView {
                 .show()
     }
 
-    override fun showChangelog(changelog: ChangelogManager.Changelog) {
+    override fun showChangelog(changelog: ChangelogManager.CumulativeChangelog) {
         changelogDialog.show(changelog)
     }
 
